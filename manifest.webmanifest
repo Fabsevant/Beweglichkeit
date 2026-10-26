@@ -1,0 +1,17 @@
+{
+  "name": "Beweglichkeitstrainer",
+  "short_name": "Beweglichkeit",
+  "description": "Führt Schritt für Schritt durch die Einheiten des 12-Wochen-Beweglichkeitsplans.",
+  "lang": "de",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F1F4EF",
+  "theme_color": "#1F5C2E",
+  "icons": [
+    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png"},
+    {"src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ]
+}

@@ -1,0 +1,1337 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#1F5C2E" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D1410" media="(prefers-color-scheme: dark)">
+<meta name="description" content="Führt Schritt für Schritt durch die Einheiten des 12-Wochen-Beweglichkeitsplans.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>Beweglichkeitstrainer</title>
+<style>
+@font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:400;font-display:swap;src:url(atkinson-400.woff2) format("woff2")}
+@font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:700;font-display:swap;src:url(atkinson-700.woff2) format("woff2")}
+@font-face{font-family:"Barlow Condensed";font-style:normal;font-weight:500;font-display:swap;src:url(barlow-500.woff2) format("woff2")}
+@font-face{font-family:"Barlow Condensed";font-style:normal;font-weight:600;font-display:swap;src:url(barlow-600.woff2) format("woff2")}
+@font-face{font-family:"Barlow Condensed";font-style:normal;font-weight:700;font-display:swap;src:url(barlow-700.woff2) format("woff2")}
+/* Layout: eine Spalte neben der Matte – große Schrift, Bedienung im Daumenbereich, aus etwa einem Meter lesbar */
+:root{
+  --bg:#F1F4EF;
+  --surface:#FFFFFF;
+  --surface-2:#E5EBE4;
+  --ink:#13221A;
+  --muted:#55665B;
+  --line:#D2DCD3;
+  --pine:#1F5C2E;
+  --fairway:#3A7D44;
+  --fairway-soft:#DCEADD;
+  --on-fairway:#FFFFFF;
+  --amber:#7A5508;
+  --amber-soft:#F3E6C6;
+  --red:#A63A30;
+  --red-soft:#F3DDD9;
+  --hero-bg:#1F5C2E;
+  --hero-ink:#F2F8F3;
+  --hero-muted:#BCD8C2;
+  --hero-line:rgb(242 248 243 / .45);
+  --hero-stripe:rgb(255 255 255 / .05);
+  --hero-btn-bg:#F2F8F3;
+  --hero-btn-ink:#1F5C2E;
+  --sc-head-ink:#FFFFFF;
+  --scrim:rgb(6 14 9 / .5);
+  --f-display:"Barlow Condensed","Roboto Condensed","Arial Narrow",sans-serif;
+  --f-body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --radius:14px;
+}
+@media (prefers-color-scheme: dark){
+  html:root:not([data-theme="light"]){
+    --bg:#0D1410; --surface:#142019; --surface-2:#1C2A21; --ink:#E4EDE6; --muted:#9BAFA2; --line:#283A2E;
+    --pine:#9FD6AC; --fairway:#63BA75; --fairway-soft:#1D3425; --on-fairway:#08170D;
+    --amber:#E6BA5C; --amber-soft:#3A2E12; --red:#EC8B80; --red-soft:#40211C;
+    --hero-bg:#17392A; --hero-ink:#E8F2EA; --hero-muted:#A9CBB2; --hero-line:rgb(232 242 234 / .35);
+    --hero-stripe:rgb(255 255 255 / .03); --hero-btn-bg:#63BA75; --hero-btn-ink:#08170D;
+    --sc-head-ink:#0D1410; --scrim:rgb(0 0 0 / .6);
+    color-scheme:dark;
+  }
+}
+html:root[data-theme="dark"]{
+  --bg:#0D1410; --surface:#142019; --surface-2:#1C2A21; --ink:#E4EDE6; --muted:#9BAFA2; --line:#283A2E;
+  --pine:#9FD6AC; --fairway:#63BA75; --fairway-soft:#1D3425; --on-fairway:#08170D;
+  --amber:#E6BA5C; --amber-soft:#3A2E12; --red:#EC8B80; --red-soft:#40211C;
+  --hero-bg:#17392A; --hero-ink:#E8F2EA; --hero-muted:#A9CBB2; --hero-line:rgb(232 242 234 / .35);
+  --hero-stripe:rgb(255 255 255 / .03); --hero-btn-bg:#63BA75; --hero-btn-ink:#08170D;
+  --sc-head-ink:#0D1410; --scrim:rgb(0 0 0 / .6);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+label.btn{cursor:pointer}
+body{
+  background:var(--bg); color:var(--ink); font-family:var(--f-body); font-size:17px; line-height:1.5;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+  -webkit-tap-highlight-color:transparent;
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+body.has-bar{padding-bottom:calc(92px + env(safe-area-inset-bottom,0px))}
+h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0}
+button{font:inherit;color:inherit}
+a{color:var(--fairway);text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--fairway);outline-offset:2px}
+.i{width:24px;height:24px;display:block;flex:none}
+.wrap{max-width:560px;margin:0 auto;padding-block:14px 32px;display:flex;flex-direction:column;gap:18px}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.icon-btn{appearance:none;border:1px solid var(--line);background:var(--surface);width:48px;height:48px;border-radius:12px;display:grid;place-items:center;cursor:pointer;color:var(--ink);flex:none;padding:0}
+.btn{appearance:none;border:0;border-radius:12px;min-height:54px;padding:12px 18px;font-weight:700;font-size:18px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;text-align:center;line-height:1.2}
+.btn-primary{background:var(--fairway);color:var(--on-fairway)}
+.btn-ghost{background:var(--surface);color:var(--ink);border:1.5px solid var(--line)}
+.btn-block{width:100%}
+.btn-small{min-height:46px;font-size:16px;padding:8px 14px}
+.btn[disabled]{opacity:.4;cursor:default}
+
+/* Kopf */
+.masthead{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.brand{font-family:var(--f-display);font-weight:700;font-size:34px;line-height:1;color:var(--pine);letter-spacing:.005em}
+.dateline{color:var(--muted);font-size:15px;margin-top:-8px}
+
+/* Heute */
+.hero{position:relative;overflow:hidden;background:var(--hero-bg);color:var(--hero-ink);border-radius:20px;padding:22px 20px 20px;display:flex;flex-direction:column;gap:6px}
+.hero::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(112deg,var(--hero-stripe) 0 38px,transparent 38px 76px);pointer-events:none}
+.hero > *{position:relative}
+.hero-eyebrow{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--hero-muted);display:flex;align-items:center;gap:6px}
+.hero-eyebrow .i{width:18px;height:18px}
+.hero-title{font-family:var(--f-display);font-weight:700;font-size:50px;line-height:.98}
+.hero-sub{color:var(--hero-muted);font-size:16px;max-width:42ch}
+.hero-actions{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+.btn-hero{background:var(--hero-btn-bg);color:var(--hero-btn-ink)}
+.btn-hero-ghost{background:transparent;color:var(--hero-ink);border:1.5px solid var(--hero-line)}
+
+/* Hinweise */
+.banner{background:var(--fairway-soft);border-radius:var(--radius);padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.banner p{font-size:16px}
+.banner strong{display:block;font-size:17px}
+.banner-actions{display:flex;gap:8px;flex-wrap:wrap}
+.banner-actions .btn{flex:1 1 160px}
+.note{display:flex;gap:10px;align-items:flex-start;background:var(--amber-soft);color:var(--ink);border-radius:12px;padding:12px 14px;font-size:15px;line-height:1.45}
+.note .i{color:var(--amber);width:22px;height:22px;margin-top:1px}
+
+/* Karten */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+.card-head{display:flex;align-items:baseline;justify-content:space-between;gap:4px 12px;flex-wrap:wrap;margin-bottom:12px}
+.card-head h3{font-size:18px}
+.hint{font-size:14px;color:var(--muted)}
+.painpad{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.pain{appearance:none;border:1.5px solid var(--line);background:var(--surface);border-radius:10px;min-height:50px;font-family:var(--f-display);font-weight:600;font-size:24px;cursor:pointer;font-variant-numeric:tabular-nums;padding:0;box-shadow:inset 0 -4px 0 var(--z)}
+.pain.z-g{--z:var(--fairway-soft)} .pain.z-y{--z:var(--amber-soft)} .pain.z-r{--z:var(--red-soft)}
+.pain.is-on.z-g{background:var(--fairway);border-color:var(--fairway);color:var(--on-fairway);box-shadow:none}
+.pain.is-on.z-y{background:var(--amber-soft);border-color:var(--amber);color:var(--amber);box-shadow:none}
+.pain.is-on.z-r{background:var(--red-soft);border-color:var(--red);color:var(--red);box-shadow:none}
+.checkin-foot{margin-top:12px;font-size:15px;color:var(--muted)}
+.checkin-foot b{color:var(--ink)}
+.trend-up{color:var(--red);font-weight:700}
+
+/* Scorecard */
+.scorecard{display:flex;flex-direction:column;gap:8px}
+.sc-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.sc-head h3{font-family:var(--f-display);font-size:26px;font-weight:700;color:var(--pine);line-height:1}
+.sc-head span{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+.sc-scroll{overflow-x:auto;border:1.5px solid var(--pine);border-radius:12px;background:var(--surface)}
+.sc{border-collapse:collapse;width:100%;min-width:320px;text-align:center;font-variant-numeric:tabular-nums}
+.sc th,.sc td{border:1px solid var(--line);padding:7px 2px;font-size:15px;height:40px}
+.sc tr > :first-child{border-left:0} .sc tr > :last-child{border-right:0}
+.sc tbody tr:last-child > *{border-bottom:0}
+.sc thead th{background:var(--pine);color:var(--sc-head-ink);border-color:var(--pine);font-size:14px;font-weight:700;line-height:1.1;border-top:0}
+.sc thead .dnum{display:block;font-weight:400;font-size:12px;opacity:.85}
+.sc .rowh{text-align:left;padding-left:10px;padding-right:6px;font-size:13px;color:var(--muted);font-weight:700;white-space:nowrap;width:1%}
+.sc thead .rowh{color:var(--sc-head-ink)}
+.sc td.is-today{background:var(--fairway-soft);font-weight:700}
+.sc thead th.is-today{box-shadow:inset 0 -4px 0 var(--fairway)}
+.mark{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;vertical-align:middle}
+.mark.ok{background:var(--fairway);color:var(--on-fairway)} .mark.ok .i{width:16px;height:16px}
+.mark.mini{border:1.5px solid var(--fairway);color:var(--fairway);font-weight:700;font-size:13px}
+.mark.none{width:6px;height:6px;background:var(--line)}
+.sc-legend{font-size:13px;color:var(--muted)}
+
+/* Listen */
+.sec{display:flex;flex-direction:column;gap:8px}
+.sec-title{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.sec-title span{letter-spacing:0;text-transform:none;font-weight:400}
+.rows{list-style:none;margin:0;padding:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.rows li + li{border-top:1px solid var(--line)}
+.row{appearance:none;border:0;background:transparent;width:100%;display:flex;align-items:center;gap:14px;padding:12px 14px;text-align:left;cursor:pointer;min-height:66px}
+.row .i{color:var(--muted)}
+.code{font-family:var(--f-display);font-weight:700;font-size:19px;min-width:44px;height:34px;padding:0 8px;border-radius:9px;display:inline-grid;place-items:center;background:var(--fairway-soft);color:var(--pine);flex:none;line-height:1}
+.row-main{display:flex;flex-direction:column;min-width:0;flex:1}
+.row-title{font-weight:700}
+.row-sub{font-size:14px;color:var(--muted)}
+.row-done{display:inline-flex;align-items:center;gap:4px;color:var(--fairway);font-size:13px;font-weight:700}
+.row-done .i{width:16px;height:16px}
+.footnote{font-size:14px;color:var(--muted);text-align:center;padding-top:4px}
+
+/* Vorschau */
+.topbar{display:flex;align-items:center;gap:12px}
+.topbar-title{font-size:15px;color:var(--muted);font-weight:700}
+.display{font-family:var(--f-display);font-weight:700;font-size:clamp(32px,9.6vw,42px);line-height:1.02;color:var(--pine);hyphens:auto;overflow-wrap:break-word}
+.lede{color:var(--muted)}
+.gear{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.gear-label{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:2px}
+.chip{display:inline-flex;align-items:center;padding:5px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--line);font-size:15px}
+.exlist{list-style:none;margin:0;padding:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.exlist li{display:flex;gap:12px;align-items:flex-start;padding:12px 14px}
+.exlist li + li{border-top:1px solid var(--line)}
+.exlist .grp{background:var(--surface-2);padding:8px 14px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.ex-li-main{display:flex;flex-direction:column;min-width:0;flex:1}
+.ex-li-name{font-weight:700}
+.ex-li-dose{font-size:15px;color:var(--muted)}
+.foot-flag{color:var(--amber);flex:none;margin-top:4px}
+.foot-flag .i{width:20px;height:20px}
+
+/* Ablauf */
+.runbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px 10px;display:grid;grid-template-columns:48px minmax(0,1fr) 48px;align-items:center;gap:8px;margin-bottom:-6px}
+.runbar-mid{appearance:none;border:0;background:transparent;display:flex;flex-direction:column;align-items:center;cursor:pointer;padding:2px 4px;min-width:0}
+.runbar-title{font-weight:700;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.runbar-count{font-family:var(--f-display);font-size:18px;color:var(--muted);font-variant-numeric:tabular-nums;line-height:1.1}
+.progress{grid-column:1/-1;height:6px;border-radius:99px;background:var(--surface-2);overflow:hidden}
+.progress span{display:block;height:100%;background:var(--fairway);border-radius:99px;transition:width .3s ease}
+.ex-head{display:flex;flex-direction:column;gap:6px}
+.ex-name{font-family:var(--f-display);font-weight:700;font-size:clamp(30px,9.2vw,40px);line-height:1.02;color:var(--ink);hyphens:auto;overflow-wrap:break-word}
+.ex-dose{font-family:var(--f-display);font-weight:600;font-size:27px;line-height:1.12;color:var(--pine)}
+.widget{display:block}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:18px 16px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.ring-wrap{position:relative;width:min(272px,76vw);aspect-ratio:1/1;max-width:100%}
+.ring{width:100%;height:100%;transform:rotate(-90deg);display:block}
+.ring-track{fill:none;stroke:var(--surface-2);stroke-width:12}
+.ring-fill{fill:none;stroke:var(--fairway);stroke-width:12;stroke-linecap:round;transition:stroke-dashoffset .2s linear}
+.ring-fill.is-gap{stroke:var(--amber)}
+.ring-fill.is-tense{stroke:var(--red)}
+.ring-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 26px;gap:4px}
+.tm-sub{font-size:14px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}
+.tm-sub.is-tense{color:var(--red)}
+.tm-time{font-family:var(--f-display);font-weight:600;font-size:clamp(64px,21vw,96px);line-height:.95;font-variant-numeric:tabular-nums}
+.tm-time .i{width:72px;height:72px;color:var(--fairway)}
+.tm-label{font-size:16px;font-weight:700;line-height:1.3;max-width:20ch}
+.tm-steps{display:flex;gap:7px;flex-wrap:wrap;justify-content:center}
+.tm-steps span{width:11px;height:11px;border-radius:50%;background:var(--surface-2)}
+.tm-steps span.is-done{background:var(--fairway)}
+.tm-steps span.is-cur{background:var(--surface);box-shadow:0 0 0 2.5px var(--fairway)}
+.tm-controls{display:flex;gap:10px;width:100%}
+.tm-controls .btn{flex:1 1 0;min-width:0}
+.tm-controls .btn-adj{flex:0 0 76px;padding-inline:4px;font-size:16px;white-space:nowrap}
+.tm-total{font-size:14px;color:var(--muted);text-align:center}
+.extra{font-size:15px;color:var(--ink);background:var(--fairway-soft);border-radius:12px;padding:10px 14px;width:100%}
+.sets-reps{font-family:var(--f-display);font-weight:700;font-size:46px;line-height:1;text-align:center}
+.sets-cap{text-align:center;color:var(--muted);font-size:15px}
+.sets-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(84px,1fr));gap:10px;width:100%}
+.set{appearance:none;border:2px solid var(--line);background:var(--bg);border-radius:14px;min-height:66px;font-weight:700;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:6px}
+.set .i{width:22px;height:22px}
+.set.is-done{background:var(--fairway);border-color:var(--fairway);color:var(--on-fairway)}
+.rest{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--amber-soft);border-radius:14px;padding:8px 10px 8px 16px;width:100%}
+.rest span{font-weight:700}
+.rest b{font-family:var(--f-display);font-size:36px;font-variant-numeric:tabular-nums;line-height:1}
+.checklist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;width:100%}
+.check{appearance:none;width:100%;display:flex;align-items:center;gap:12px;border:1.5px solid var(--line);background:var(--bg);border-radius:14px;padding:14px;text-align:left;cursor:pointer;min-height:62px;font-weight:700}
+.box{width:30px;height:30px;border-radius:8px;border:2px solid var(--muted);display:grid;place-items:center;flex:none;color:transparent}
+.box .i{width:20px;height:20px}
+.check.is-on .box{background:var(--fairway);border-color:var(--fairway);color:var(--on-fairway)}
+.howto{display:flex;flex-direction:column;gap:6px}
+.label{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.howto p{max-width:62ch}
+details{border-top:1px solid var(--line);margin-top:6px}
+summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;align-items:center;min-height:48px}
+summary::-webkit-details-marker{display:none}
+summary .i{color:var(--muted);transition:transform .2s ease}
+details[open] summary .i{transform:rotate(90deg)}
+details p{padding-bottom:10px}
+.next{font-size:15px;color:var(--muted);border-top:1px dashed var(--line);padding-top:12px}
+.next b{color:var(--ink)}
+
+/* Aktionsleiste */
+.actionbar{position:fixed;left:0;right:0;bottom:0;z-index:6;background:var(--bg);border-top:1px solid var(--line);padding-top:10px;padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px))}
+.actionbar-in{max-width:560px;margin:0 auto;display:flex;gap:10px}
+.actionbar-in .btn-primary{flex:1 1 auto;min-width:0;white-space:nowrap}
+.btn-sq{width:54px;padding:0;flex:none}
+.btn-primary.is-ready{animation:ready 1.1s ease-in-out 2}
+@keyframes ready{50%{box-shadow:0 0 0 7px var(--fairway-soft)}}
+
+/* Abschluss */
+.done-badge{width:84px;height:84px;border-radius:50%;background:var(--fairway);color:var(--on-fairway);display:grid;place-items:center;margin-top:10px}
+.done-badge .i{width:46px;height:46px}
+.amp-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.amp-btn{appearance:none;border:2px solid var(--line);background:var(--surface);border-radius:14px;padding:12px 6px;display:flex;flex-direction:column;gap:4px;align-items:center;cursor:pointer;min-height:84px;text-align:center}
+.amp-btn b{font-size:18px}
+.amp-btn small{font-size:13px;color:var(--muted);line-height:1.3}
+.amp-dot{width:16px;height:16px;border-radius:50%;display:block}
+.amp-btn.g .amp-dot{background:var(--fairway)} .amp-btn.y .amp-dot{background:var(--amber)} .amp-btn.r .amp-dot{background:var(--red)}
+.amp-btn.g.is-on{border-color:var(--fairway);background:var(--fairway-soft)}
+.amp-btn.y.is-on{border-color:var(--amber);background:var(--amber-soft)}
+.amp-btn.r.is-on{border-color:var(--red);background:var(--red-soft)}
+.amp-advice{margin-top:12px;font-size:16px}
+
+/* Blätter */
+.scrim{position:fixed;inset:0;background:var(--scrim);z-index:20;border:0;padding:0;width:100%;cursor:default}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:21;background:var(--surface);border-radius:20px 20px 0 0;max-height:88vh;overflow:auto;padding-top:18px;padding-bottom:calc(22px + env(safe-area-inset-bottom,0px));padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px))}
+.sheet-in{max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.sheet-head{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.sheet h2{font-family:var(--f-display);font-size:32px;font-weight:700;color:var(--pine);line-height:1}
+.sheet h2:focus{outline:none}
+.sheet h3{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.seg{display:flex;border:1.5px solid var(--line);border-radius:12px;overflow:hidden}
+.seg button{flex:1 1 0;appearance:none;border:0;background:transparent;min-height:48px;font-weight:700;cursor:pointer;padding:0 6px}
+.seg button + button{border-left:1.5px solid var(--line)}
+.seg button.is-on{background:var(--fairway);color:var(--on-fairway)}
+.small{font-size:15px;color:var(--muted)}
+.amp-table{width:100%;border-collapse:collapse;font-size:15px}
+.amp-table th,.amp-table td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+.amp-table th{color:var(--muted);font-size:13px;font-weight:700}
+.amp-name{display:inline-flex;align-items:center;gap:6px;font-weight:700}
+.amp-name .amp-dot{width:12px;height:12px}
+.dot-g{background:var(--fairway)} .dot-y{background:var(--amber)} .dot-r{background:var(--red)}
+.ov-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.ov-list li + li{border-top:1px solid var(--line)}
+.ov-row{appearance:none;border:0;background:transparent;width:100%;display:flex;align-items:center;gap:12px;padding:10px 2px;text-align:left;cursor:pointer;min-height:56px}
+.ov-row.is-cur{font-weight:700}
+.ov-state{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;flex:none;font-size:13px;font-weight:700;border:1.5px solid var(--line);color:var(--muted)}
+.ov-state.ok{background:var(--fairway);border-color:var(--fairway);color:var(--on-fairway)}
+.ov-state.ok .i{width:16px;height:16px}
+.ov-state.cur{border-color:var(--fairway);color:var(--fairway)}
+.sheet-actions{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+
+@media (min-width:700px){
+  .hero-actions{flex-direction:row}
+  .hero-actions .btn{flex:1 1 0}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<noscript><p style="padding:16px">Diese App braucht JavaScript.</p></noscript>
+
+<script>
+(() => {
+'use strict';
+
+const START = '2026-10-26';
+const FOOT = 'Rechter Fuß: Belastung im Stand nur bei grüner Ampel in der Vorwoche.';
+const PHASES = {1: 'Grundlagen', 2: 'Aufbau', 3: 'Integration'};
+const PLAN = {1: 'A', 2: 'B', 3: 'C', 4: 'A', 5: 'B', 6: 'C', 0: null};
+const MAINT = {1: 'A', 2: 'G', 3: 'B', 4: 'G', 5: 'C', 6: 'G', 0: null};
+
+/* ---------- Inhalte aus dem Plan ---------- */
+const RT = 'Polster so einstellen, dass seine Oberkante knapp unter der Hüftbeuge liegt; Fußspitzen leicht nach außen, Arme vor der Brust verschränkt. Becken aufrichten, oberen Rücken leicht runden, Oberkörper aus der Hüfte absenken und mit Gesäßkraft hochkommen, bis Oberkörper und Beine eine Linie bilden.';
+const RT_FOOT = 'Auf der Fußstütze trägt der ganze Fuß mit, auch der Vorfuß: rechts nur bei grüner Ampel. Laut Hersteller nur mit Schuhen trainieren.';
+const OB = 'Seitlage, Knie 90 Grad gebeugt und übereinander, Arme gestreckt vor der Brust. Öffne den oberen Arm in einem Bogen zur anderen Seite, der Blick folgt der Hand.';
+const KZW = 'Knie-zur-Wand-Mobilisation: Fuß eine Handbreit vor der Wand, Knie über die Fußmitte zur Wand schieben, die Ferse bleibt am Boden.';
+const ZY = 'Zehen-Yoga: nur die Großzehe heben, die anderen bleiben am Boden, dann umgekehrt.';
+const EV = 'Band um den Vorfuß, den Fuß langsam nach außen drehen und zurückführen. Für die Innenseite zieht das Band von außen, der Fuß dreht nach innen.';
+const WALL_G = 'Schrittstellung vor der Wand, hinteres Bein gestreckt, Ferse am Boden, Fuß gerade nach vorne; die Hüfte nach vorne schieben.';
+const WALL_S = 'Schrittstellung vor der Wand, beide Knie gebeugt, Gewicht auf das hintere Bein, Ferse am Boden.';
+
+const EX = {
+  G1: {name: 'Katze-Kuh mit Beckenfokus',
+    ziel: 'Wirbelsäule aufwärmen; die Beckenkippung wahrnehmen und steuern lernen.',
+    how: 'Vierfüßlerstand, Hände unter den Schultern, Knie unter den Hüften. Rolle ausatmend das Becken ein und runde den Rücken Wirbel für Wirbel. Kippe einatmend das Becken nach vorne und schiebe das Brustbein nach vorne.',
+    achte: 'Die Bewegung beginnt im Becken, nicht im Nacken.',
+    leicht: 'kleinerer Bewegungsweg', schwer: 'an beiden Endpunkten drei Atemzüge halten',
+    p: [
+      {t: '8 Wdh.', k: 'sets', n: 1, r: '8 Wdh.', gear: ['Matte']},
+      {t: '8 Wdh.', k: 'sets', n: 1, r: '8 Wdh.', gear: ['Matte']},
+      {t: '8 Wdh., Endpunkte 3 Atemzüge halten', k: 'sets', n: 1, r: '8 Wdh.', plus: 'An beiden Endpunkten drei Atemzüge halten.', gear: ['Matte']}]},
+  G2: {name: 'Hüftbeugerdehnung im Halbkniestand',
+    ziel: 'Hüftbeuger dehnen; die wichtigste Einzelübung gegen die Beckenkippung.',
+    how: 'Lege das hintere Knie auf die gefaltete Matte, den Rist des hinteren Fußes flach auf den Boden. Richte zuerst das Becken auf: Schambein nach oben, Gesäß des hinteren Beins fest anspannen. Schiebe erst dann die Hüfte leicht nach vorne, der Oberkörper bleibt aufrecht.',
+    achte: 'Kein Hohlkreuz. Das Ziehen entsteht vorne in Leiste und Oberschenkel, nicht im unteren Rücken.',
+    leicht: 'kürzerer Schritt, Hand an einem Stuhl', schwer: 'gleichseitigen Arm über den Kopf strecken, dann zur Gegenseite neigen',
+    p: [
+      {t: '2 × 30 s je Seite', k: 'hold', n: 2, s: 30, side: true, gear: ['Matte']},
+      {t: '2 × 45 s je Seite, Arm über Kopf', k: 'hold', n: 2, s: 45, side: true, plus: 'Strecke dabei den Arm auf der Seite des hinteren Knies über den Kopf.', gear: ['Matte']},
+      {t: '2 × 45 s je Seite, Arm über Kopf und Seitneigung', k: 'hold', n: 2, s: 45, side: true, plus: 'Strecke den Arm auf der Seite des hinteren Knies über den Kopf und neige dich zur Gegenseite.', gear: ['Matte']}]},
+  G3: {name: 'Ausfallschritt mit Rotation',
+    ziel: 'Hüfte, Leiste und Drehung der Brustwirbelsäule in einer Bewegung.',
+    how: 'Halbkniestand mit dem linken Bein vorne, hinteres Knie und Rist am Boden. Setze die rechte Hand innen neben den linken Fuß und drehe den linken Arm zur Decke; der Blick folgt der Hand. Zurück, wiederholen, dann Seitenwechsel.',
+    achte: 'Die Drehung kommt aus dem Brustkorb, das Becken bleibt ruhig.',
+    leicht: 'Hand auf ein Buch stützen', schwer: 'hinteres Knie anheben, nur bei beschwerdefreiem rechtem Fuß',
+    p: [
+      {t: '5 je Seite, Knie abgelegt', k: 'sets', n: 1, r: '5 je Seite', gear: ['Matte']},
+      {t: '6 je Seite, Knie abgelegt', k: 'sets', n: 1, r: '6 je Seite', gear: ['Matte']},
+      {t: '6 je Seite, Knie angehoben', k: 'sets', n: 1, r: '6 je Seite', plus: 'Hebe das hintere Knie an.', foot: 'Knie nur anheben, wenn der rechte Fuß beschwerdefrei ist; sonst abgelegt lassen.', gear: ['Matte']}]},
+  G4: {name: '90/90-Hüftwechsel',
+    ziel: 'Innen- und Außenrotation beider Hüften. Als Rechtshänder brauchst du Innenrotation rechts im Rückschwung und links im Durchschwung.',
+    how: 'Setz dich auf den Boden, beide Knie 90 Grad gebeugt: ein Bein vor dir, eines seitlich. Kippe beide Knie gleichzeitig zur anderen Seite, die Fersen bleiben am Boden. Der Oberkörper bleibt aufrecht.',
+    achte: 'Kein Rundrücken, kein Schwung. Die laut Test eingeschränktere Seite bekommt zwei Wiederholungen mehr.',
+    leicht: 'Hände hinter dem Körper abstützen', schwer: 'ohne Hände, in jeder Position 3 s halten und den Oberkörper über das vordere Schienbein neigen',
+    p: [
+      {t: '6 je Seite, Hände stützen', k: 'sets', n: 1, r: '6 je Seite', gear: ['Matte']},
+      {t: '8 je Seite, ohne Hände', k: 'sets', n: 1, r: '8 je Seite', gear: ['Matte']},
+      {t: '8 je Seite, 3 s halten', k: 'sets', n: 1, r: '8 je Seite', plus: 'In jeder Position 3 s halten.', gear: ['Matte']}]},
+  G5: {name: 'Beckenheben',
+    ziel: 'Gesäßmuskulatur aktivieren und das Aufrichten des Beckens üben.',
+    how: 'Rückenlage, Füße hüftbreit aufgestellt. Drücke zuerst den unteren Rücken in die Matte, hebe dann das Gesäß, bis Knie, Hüfte und Schultern eine Linie bilden. Halten und langsam absenken; der Druck geht über die Fersen.',
+    achte: 'Oben kein Hohlkreuz. Krampft die Oberschenkelrückseite, stell die Füße näher ans Gesäß.',
+    leicht: 'kleinerer Bewegungsweg', schwer: 'Band um die Knie und die Knie leicht nach außen drücken',
+    p: [
+      {t: '10 Wdh., 2 s halten', k: 'sets', n: 1, r: '10 Wdh.', plus: 'Oben jeweils 2 s halten.', gear: ['Matte']},
+      {t: '12 Wdh., 3 s halten', k: 'sets', n: 1, r: '12 Wdh.', plus: 'Oben jeweils 3 s halten.', gear: ['Matte']},
+      {t: '12 Wdh., 3 s halten, Band um die Knie', k: 'sets', n: 1, r: '12 Wdh.', plus: 'Oben jeweils 3 s halten, mit Band um die Knie; Knie leicht nach außen drücken.', gear: ['Matte', 'Band']}]},
+  G6: {name: 'Wadendehnung mit gestrecktem Knie',
+    ziel: 'Die überlastete Wadenmuskulatur dehnen, vor allem den Zwillingswadenmuskel.',
+    achte: 'Die Ferse bleibt am Boden, der Fuß dreht nicht nach außen.',
+    leicht: 'kürzere Schrittstellung', schwer: 'ab Phase 3 Vorfuß auf eine Stufe, nur bei beschwerdefreiem Fuß',
+    p: [
+      {t: 'Langsitz mit Band, 2 × 30 s je Seite', k: 'hold', n: 2, s: 30, side: true, how: 'Setz dich mit gestreckten Beinen hin, lege ein Band um den Vorfuß und ziehe die Fußspitze zu dir.', gear: ['Band']},
+      {t: 'an der Wand, 2 × 45 s je Seite', k: 'hold', n: 2, s: 45, side: true, how: WALL_G, foot: FOOT, gear: ['Wand']},
+      {t: 'an der Wand, 2 × 45 s je Seite', k: 'hold', n: 2, s: 45, side: true, how: WALL_G, foot: FOOT, gear: ['Wand']}]},
+
+  A1: {name: 'Dehnung vorderer Oberschenkel',
+    ziel: 'Den geraden Oberschenkelmuskel dehnen. Er zieht über Hüfte und Knie und kippt das Becken nach vorne.',
+    achte: 'Becken aufgerichtet, Gesäß angespannt, kein Hohlkreuz.',
+    leicht: 'Knie weiter von der Wand', schwer: 'Oberkörper aufrecht, Anspannen-Entspannen',
+    p: [
+      {t: 'Seitlage, 2 × 30 s je Seite', k: 'hold', n: 2, s: 30, side: true, how: 'Leg dich auf die Seite, fasse den Knöchel des oberen Beins und ziehe die Ferse zum Gesäß. Richte das Becken auf und schiebe die Hüfte leicht nach vorne.', gear: ['Matte']},
+      {t: 'Kniestand an der Wand, Hände am Boden, 2 × 45 s je Seite', k: 'hold', n: 2, s: 45, side: true, how: 'Knie mit Kissen nahe an der Wand, Schienbein an der Wand, das andere Bein vorne aufgestellt. Die Hände stützen am Boden.', gear: ['Matte', 'Kissen', 'Wand']},
+      {t: 'Kniestand an der Wand aufrecht, Anspannen-Entspannen, 3 Durchgänge je Seite', k: 'pnf', n: 3, a: 5, s: 20, how: 'Wie in Phase 2, aber mit aufgerichtetem Oberkörper. Drücke in jedem Durchgang 5 s mit etwa einem Drittel der Kraft gegen die Dehnung, löse dann und dehne 20 s tiefer.', gear: ['Matte', 'Kissen', 'Wand']}]},
+  A2: {name: 'Oberschenkelrückseite',
+    ziel: 'Beweglichkeit der Oberschenkelrückseite und sauberes Beugen aus der Hüfte, wie es die Ansprechhaltung verlangt.',
+    achte: 'Der Rücken bleibt gerade, das Becken kippt nicht zur Seite.',
+    leicht: 'Knie stärker beugen', schwer: 'schwerere Hantel, langsamer absenken',
+    p: [
+      {t: 'Band in Rückenlage, 2 × 30 s und 5 aktive Hebungen je Seite', k: 'hold', n: 2, s: 30, side: true, extra: 'Danach je Seite fünfmal das Bein ohne Band so hoch wie möglich heben.', how: 'Rückenlage, Band um den Fuß, das gestreckte Bein anheben, bis es zieht, und halten.', gear: ['Matte', 'Band']},
+      {t: 'Hüftscharnier mit Stab, 2 × 10', k: 'sets', n: 2, r: '10 Wdh.', rest: 30, how: 'Stab längs am Rücken, sodass Hinterkopf, oberer Rücken und Kreuzbein ihn berühren. Mit leicht gebeugten Knien aus der Hüfte nach vorne neigen.', gear: ['Stab']},
+      {t: 'Einbeiniges Kreuzheben mit Kurzhantel, 3 × 8 je Seite', k: 'sets', n: 3, r: '8 je Seite', rest: 45, how: 'Stand auf einem Bein, die Kurzhantel in der Gegenhand. Aus der Hüfte nach vorne neigen, das freie Bein streckt nach hinten, dann wieder aufrichten.', foot: FOOT, gear: ['Kurzhantel']}]},
+  A3: {name: 'Adduktoren',
+    ziel: 'Die Innenseite der Oberschenkel dehnen; das verbessert Hüftrotation und Gewichtsverlagerung.',
+    achte: 'Die Ferse des gebeugten Beins bleibt am Boden, das Knie zeigt in Richtung Fußspitze.',
+    leicht: 'kleinerer Weg', schwer: 'tiefer, ohne Stütze, Kettlebell vor der Brust',
+    p: [
+      {t: 'Schaukeln im Vierfüßlerstand, 2 × 10 je Seite', k: 'sets', n: 2, r: '10 je Seite', how: 'Vierfüßlerstand, ein Bein seitlich gestreckt, Fuß flach am Boden. Das Gesäß langsam Richtung Fersen schieben und zurück.', gear: ['Matte']},
+      {t: 'Seitliche Kniebeuge mit Stütze, 2 × 6 je Seite', k: 'sets', n: 2, r: '6 je Seite', rest: 30, how: 'Breiter Stand. Gewicht auf ein Bein verlagern und tief beugen, das andere Bein bleibt gestreckt, Zehen zeigen nach oben. Halte dich an einem Stuhl fest.', foot: FOOT, gear: ['Stuhl']},
+      {t: 'Seitliche Kniebeuge frei, 3 × 6 je Seite', k: 'sets', n: 3, r: '6 je Seite', rest: 30, how: 'Breiter Stand. Gewicht auf ein Bein verlagern und tief beugen, das andere Bein bleibt gestreckt, Zehen zeigen nach oben. Ohne Stütze.', foot: FOOT, gear: []}]},
+  A4: {name: 'Dead Bug',
+    ziel: 'Bauchmuskulatur und Beckenkontrolle, während sich Arme und Beine bewegen.',
+    how: 'Rückenlage, Arme zur Decke, Hüfte und Knie 90 Grad gebeugt. Drücke den unteren Rücken in die Matte. Strecke ausatmend den rechten Arm nach hinten und das linke Bein nach vorne, zurück, dann Seitenwechsel.',
+    achte: 'Der untere Rücken hebt nie ab; strecke nur so weit, wie das gelingt.',
+    leicht: 'nur die Beine bewegen', schwer: 'Beine weiter strecken, Kurzhanteln in den Händen',
+    p: [
+      {t: '3 × 6 je Seite', k: 'sets', n: 3, r: '6 je Seite', rest: 30, gear: ['Matte']},
+      {t: '3 × 8 je Seite, 4 s pro Wdh.', k: 'sets', n: 3, r: '8 je Seite', rest: 30, plus: 'Langsam: etwa 4 s pro Wiederholung.', gear: ['Matte']},
+      {t: '3 × 8 je Seite mit leichten Kurzhanteln', k: 'sets', n: 3, r: '8 je Seite', rest: 30, plus: 'Mit leichten Kurzhanteln in den Händen.', gear: ['Matte', 'Kurzhanteln']}]},
+  A5: {name: 'Gesäßkraft',
+    ziel: 'Den großen Gesäßmuskel kräftigen. Er richtet das Becken auf und liefert Kraft für Schwung und Laufen.',
+    achte: 'Oben nicht ins Hohlkreuz überstrecken; die Bewegung kommt aus der Hüfte, nicht aus dem unteren Rücken.',
+    leicht: 'kleinerer Bewegungsweg', schwer: 'oben 2 s halten, schwerere Hantel',
+    p: [
+      {t: 'Beckenheben mit Marschieren, 2 × 6 je Seite', k: 'sets', n: 2, r: '6 je Seite', rest: 30, how: 'Beckenheben wie G5. Oben abwechselnd einen Fuß kurz anheben, ohne dass das Becken absinkt.', gear: ['Matte']},
+      {t: 'Rückentrainer mit Gesäßfokus, 3 × 10', k: 'sets', n: 3, r: '10 Wdh.', rest: 45, how: RT, foot: RT_FOOT, gear: ['Rückentrainer', 'Schuhe']},
+      {t: 'Rückentrainer mit Gesäßfokus und Kurzhantel vor der Brust, 3 × 10–12', k: 'sets', n: 3, r: '10–12 Wdh.', rest: 60, how: RT + ' Halte dabei eine Kurzhantel vor der Brust.', foot: RT_FOOT, gear: ['Rückentrainer', 'Schuhe', 'Kurzhantel']}]},
+  A6: {name: 'Seitliche Hüfte',
+    ziel: 'Den mittleren Gesäßmuskel kräftigen. Er stabilisiert Becken und Knie im Einbeinstand.',
+    achte: 'Hüfte gestreckt, Körper in einer Linie.',
+    leicht: 'ohne Band', schwer: 'im Seitstütz das obere Bein anheben',
+    p: [
+      {t: 'Muschel mit Band, 2 × 15 je Seite', k: 'sets', n: 2, r: '15 je Seite', how: 'Seitlage mit gebeugten Knien, Band um die Oberschenkel. Das obere Knie öffnen, die Füße bleiben zusammen.', gear: ['Matte', 'Band']},
+      {t: 'Seitstütz auf den Knien mit Muschel, 2 × 10 je Seite', k: 'sets', n: 2, r: '10 je Seite', rest: 30, how: 'Seitstütz auf Unterarm und Knien. In dieser Position das obere Knie öffnen.', gear: ['Matte']},
+      {t: 'Seitstütz auf den Füßen, 3 × 20–30 s je Seite', k: 'hold', n: 3, s: 25, side: true, how: 'Seitstütz auf Unterarm und Füßen, Körper in einer Linie.', foot: 'Der Seitstütz belastet die Außenkante des unteren Fußes: rechts auf dem Knie bleiben, solange die Außenkante schmerzt.', gear: ['Matte']}]},
+
+  B1: {name: 'Brustwirbelsäule über die Faszienrolle',
+    ziel: 'Die Brustwirbelsäule strecken, als Ausgleich zum Sitzen und als Voraussetzung für die Drehung im Schwung.',
+    how: 'Lege die Rolle quer unter den oberen Rücken, die Hände stützen den Hinterkopf, das Gesäß bleibt am Boden. Lehne dich ausatmend über die Rolle nach hinten. Verschiebe die Rolle in fünf Schritten vom unteren Schulterblattrand bis knapp unter den Nacken.',
+    achte: 'Nicht über den unteren Rücken rollen; die unteren Rippen bleiben unten.',
+    leicht: 'kleinerer Weg', schwer: 'Stab mit gestreckten Armen über dem Kopf halten',
+    p: [
+      {t: '5 Positionen × 3 Atemzüge', k: 'hold', n: 5, s: 15, lbl: 'Position', gear: ['Faszienrolle']},
+      {t: '5 Positionen × 3 Atemzüge, Stab über dem Kopf', k: 'hold', n: 5, s: 15, lbl: 'Position', plus: 'Halte dabei den Stab mit gestreckten Armen über dem Kopf.', gear: ['Faszienrolle', 'Stab']},
+      {t: '5 Positionen × 5 Atemzüge, Stab über dem Kopf', k: 'hold', n: 5, s: 25, lbl: 'Position', plus: 'Halte dabei den Stab mit gestreckten Armen über dem Kopf.', gear: ['Faszienrolle', 'Stab']}]},
+  B2: {name: 'Offenes Buch',
+    ziel: 'Die Drehung der Brustwirbelsäule verbessern, die Grundlage für einen weiten Rückschwung.',
+    achte: 'Die Knie bleiben liegen, die Drehung kommt aus dem Brustkorb.',
+    leicht: 'Kissen unter den Kopf', schwer: 'am Endpunkt halten und ausatmen',
+    p: [
+      {t: '2 × 8 je Seite', k: 'sets', n: 2, r: '8 je Seite', how: OB, gear: ['Matte']},
+      {t: '2 × 8 je Seite, 3 Atemzüge am Endpunkt', k: 'sets', n: 2, r: '8 je Seite', how: OB + ' Am Endpunkt drei Atemzüge halten.', gear: ['Matte']},
+      {t: 'Rotation im Fersensitz, 2 × 8 je Seite', k: 'sets', n: 2, r: '8 je Seite', how: 'Fersensitz, ein Unterarm am Boden, die andere Hand am Hinterkopf. Den Ellbogen zur Decke drehen.', gear: ['Matte']}]},
+  B3: {name: 'Brustdehnung am Türrahmen',
+    ziel: 'Die Brustmuskeln dehnen; sie ziehen die Schultern beim Sitzen nach vorne.',
+    how: 'Unterarm an den Türrahmen, Ellbogen auf Schulterhöhe. Mit einem Schritt den Oberkörper langsam nach vorne bringen und leicht vom Arm wegdrehen.',
+    achte: 'Die Schulter nicht zum Ohr ziehen, kein Hohlkreuz.',
+    leicht: 'kleinerer Schritt', schwer: 'Anspannen-Entspannen: Unterarm 5 s gegen den Rahmen drücken',
+    p: [
+      {t: '2 × 30 s je Seite', k: 'hold', n: 2, s: 30, side: true, gear: ['Türrahmen']},
+      {t: '2 × 45 s je Seite, zwei Armhöhen', k: 'hold', n: 2, s: 45, side: true, plus: 'Im zweiten Satz den Ellbogen über Schulterhöhe ansetzen.', gear: ['Türrahmen']},
+      {t: '2 × 45 s je Seite, Anspannen-Entspannen', k: 'hold', n: 2, s: 45, side: true, plus: 'Zu Beginn den Unterarm 5 s gegen den Rahmen drücken, lösen und tiefer dehnen.', gear: ['Türrahmen']}]},
+  B4: {name: 'Latissimus-Dehnung am Sitzball',
+    ziel: 'Den breiten Rückenmuskel dehnen. Ist er verkürzt, begrenzt er Armhebung und Rotation und verstärkt das Hohlkreuz.',
+    how: 'Kniestand vor dem Ball, Hände oder Unterarme auf dem Ball. Schiebe das Gesäß Richtung Fersen und lass die Brust sinken, der Rücken bleibt lang.',
+    achte: 'Den Bauch leicht anspannen, der untere Rücken hängt nicht durch.',
+    leicht: 'Ball näher heranholen', schwer: 'einarmig, Oberkörper zur Gegenseite neigen',
+    p: [
+      {t: '2 × 30 s', k: 'hold', n: 2, s: 30, gear: ['Sitzball', 'Matte']},
+      {t: '2 × 45 s', k: 'hold', n: 2, s: 45, gear: ['Sitzball', 'Matte']},
+      {t: '2 × 45 s je Seite, einarmig mit Seitneigung', k: 'hold', n: 2, s: 45, side: true, plus: 'Einarmig, den Oberkörper zur Gegenseite neigen.', gear: ['Sitzball', 'Matte']}]},
+  B5: {name: 'Schulterdurchzug mit Band',
+    ziel: 'Schulterbeweglichkeit für Armhebung und Rückschwung.',
+    how: 'Greife das Band mit gestreckten Armen weit und führe es über den Kopf hinter den Körper und zurück.',
+    achte: 'Arme gestreckt, kein Hohlkreuz; nur so eng greifen, wie es schmerzfrei geht.',
+    leicht: 'weiter greifen', schwer: 'enger greifen, Stab statt Band',
+    p: [
+      {t: '2 × 10', k: 'sets', n: 2, r: '10 Wdh.', gear: ['Band']},
+      {t: '2 × 12, Hände enger', k: 'sets', n: 2, r: '12 Wdh.', plus: 'Greife etwas enger als in Phase 1.', gear: ['Band']},
+      {t: '2 × 12 mit Stab', k: 'sets', n: 2, r: '12 Wdh.', plus: 'Mit Stab statt Band, wenn die Schultern es zulassen.', gear: ['Stab']}]},
+  B6: {name: 'Oberer Rücken',
+    ziel: 'Die Muskulatur zwischen den Schulterblättern kräftigen, als Gegenpol zur Sitzhaltung.',
+    achte: 'Schultern tief, nicht zum Ohr ziehen.',
+    leicht: 'leichteres Band', schwer: '2 s halten, schwerere Hantel',
+    p: [
+      {t: 'Rudern mit Band, 2 × 15', k: 'sets', n: 2, r: '15 Wdh.', rest: 30, how: 'Band auf Brusthöhe befestigen, die Ellbogen nah am Körper nach hinten ziehen, Schulterblätter zusammen.', gear: ['Band']},
+      {t: 'Face Pull mit Band, 3 × 12', k: 'sets', n: 3, r: '12 Wdh.', rest: 30, how: 'Band auf Kopfhöhe befestigen und zum Gesicht ziehen, Ellbogen hoch und außen.', gear: ['Band']},
+      {t: 'Einarmiges Kurzhantelrudern, 3 × 10 je Seite', k: 'sets', n: 3, r: '10 je Seite', rest: 45, how: 'Eine Hand und ein Knie auf einem Stuhl, die Kurzhantel zur Hüfte ziehen.', gear: ['Kurzhantel', 'Stuhl']}]},
+  B7: {name: 'Rumpf und Rotation',
+    ziel: 'Rumpfstabilität gegen Drehkräfte und kontrollierte Rotation für den Golfschwung.',
+    achte: 'Die Bewegung kommt aus Hüfte und Brustkorb, nicht aus dem unteren Rücken.',
+    leicht: 'näher am Befestigungspunkt stehen', schwer: 'stärkeres Band, schwererer Ball',
+    p: [
+      {t: 'Pallof-Press, 2 × 10 je Seite', k: 'sets', n: 2, r: '10 je Seite', rest: 30, how: 'Band seitlich auf Brusthöhe befestigen, den Griff mit beiden Händen vor die Brust nehmen und langsam nach vorne strecken, ohne dass der Rumpf mitdreht.', gear: ['Band']},
+      {t: 'Holzhacker mit Band, 2 × 10 je Seite', k: 'sets', n: 2, r: '10 je Seite', rest: 30, how: 'Band oben seitlich befestigen und diagonal nach unten zur Gegenseite ziehen.', gear: ['Band']},
+      {t: 'Medizinball-Rotationswurf, 3 × 6 je Seite', k: 'sets', n: 3, r: '6 je Seite', rest: 45, how: 'Seitlich zu einer stabilen Wand stehen und den Medizinball mit einer Drehung aus Hüfte und Rumpf gegen die Wand werfen. Wirf in beide Richtungen.', foot: 'Beim Wurf in Schlagrichtung dreht der rechte Fuß wie im Durchschwung über den Vorfuß: nur bei beschwerdefreiem Fuß, sonst Holzhacker aus Phase 2.', gear: ['Medizinball', 'Wand']}]},
+
+  C1: {name: 'Faszienrolle Wade, Massageball Fußsohle',
+    ziel: 'Die Spannung der überlasteten Wade senken und die Fußsohle lockern.',
+    how: 'Lege die Wade auf die Rolle und rolle langsam vom Knöchel bis unter die Kniekehle; an festen Stellen 20 s verweilen. Danach im Sitzen den Ball langsam unter der Fußsohle rollen.',
+    achte: 'Mittlerer Druck, höchstens 5 von 10. Rechts die schmerzhaften Stellen an Außenkante und Vorfuß aussparen.',
+    leicht: 'das andere Bein abstellen', schwer: 'Beine überkreuzen für mehr Druck',
+    p: [
+      {t: 'je 60 s pro Seite', k: 'seq', seq: [{l: 'Wade links', s: 60}, {l: 'Wade rechts', s: 60}, {l: 'Fußsohle links', s: 60}, {l: 'Fußsohle rechts', s: 60}], gear: ['Faszienrolle', 'Massageball']}]},
+  C2: {name: 'Wadendehnung mit gebeugtem Knie',
+    ziel: 'Den Schollenmuskel dehnen, den tiefen Wadenmuskel, der beim Laufen besonders stark beansprucht wird.',
+    achte: 'Ferse am Boden, das Knie zeigt über die zweite Zehe.',
+    leicht: 'Knie weniger beugen', schwer: 'an der Stufe',
+    p: [
+      {t: 'Langsitz mit Band, 2 × 30 s je Seite', k: 'hold', n: 2, s: 30, side: true, how: 'Langsitz mit leicht gebeugtem Knie, Band um den Vorfuß, Fußspitze zu dir ziehen.', gear: ['Band']},
+      {t: 'an der Wand, 2 × 45 s je Seite', k: 'hold', n: 2, s: 45, side: true, how: WALL_S, foot: FOOT, gear: ['Wand']},
+      {t: 'an der Wand oder an der Stufe, 2 × 45 s je Seite', k: 'hold', n: 2, s: 45, side: true, how: WALL_S + ' Alternativ an der Stufe, wenn der Fuß beschwerdefrei ist.', foot: FOOT, gear: ['Wand']}]},
+  C3: {name: 'Sprunggelenk und Zehen',
+    ziel: 'Beweglichkeit des oberen Sprunggelenks und Steuerung der Zehen.',
+    achte: 'Der Fuß knickt nicht nach innen, die Ferse hebt nicht ab.',
+    leicht: 'näher an die Wand', schwer: 'weiter weg von der Wand',
+    p: [
+      {t: 'Fußkreisen 10 je Richtung, Zehen-Yoga 2 × 10', k: 'list', items: ['Fußkreisen: 10 je Richtung, beide Füße', 'Zehen-Yoga: 2 × 10'], how: 'Im Sitzen den Fuß in großen Kreisen bewegen. ' + ZY, gear: []},
+      {t: 'Knie-zur-Wand-Mobilisation 2 × 10, Zehen-Yoga 2 × 10', k: 'list', items: ['Knie-zur-Wand-Mobilisation: 2 × 10 je Seite', 'Zehen-Yoga: 2 × 10'], how: KZW + ' ' + ZY, foot: FOOT, gear: ['Wand']},
+      {t: 'Knie-zur-Wand-Mobilisation 2 × 10, Zehen-Yoga im Stand 2 × 10', k: 'list', items: ['Knie-zur-Wand-Mobilisation: 2 × 10 je Seite', 'Zehen-Yoga im Stand: 2 × 10'], how: KZW + ' ' + ZY + ' Im Stand ausführen.', foot: FOOT, gear: ['Wand']}]},
+  C4: {name: 'Kurzer Fuß',
+    ziel: 'Die kleinen Fußmuskeln kräftigen, die das Längsgewölbe tragen.',
+    how: 'Fuß flach auf den Boden. Ziehe den Großzehenballen Richtung Ferse, ohne die Zehen zu krallen; das Gewölbe hebt sich leicht. 5 s halten.',
+    achte: 'Die Zehen bleiben lang und locker.',
+    leicht: 'im Sitzen', schwer: 'einbeinig, später auf dem Halbball',
+    p: [
+      {t: 'sitzend, 2 × 8 × 5 s je Seite', k: 'sets', n: 2, r: '8 × 5 s je Seite', plus: 'Im Sitzen.', gear: ['Stuhl']},
+      {t: 'stehend, 2 × 8 × 5 s je Seite', k: 'sets', n: 2, r: '8 × 5 s je Seite', plus: 'Im Stehen.', foot: FOOT, gear: []},
+      {t: 'einbeinig, 2 × 6 × 5 s je Seite', k: 'sets', n: 2, r: '6 × 5 s je Seite', plus: 'Auf einem Bein stehend.', foot: FOOT, gear: []}]},
+  C5: {name: 'Fußaußen- und Fußinnenrand mit Band',
+    ziel: 'Die Wadenbeinmuskeln kräftigen, deren Sehnen hinter dem Außenknöchel entlang der Fußaußenkante verlaufen. Ab Phase 2 kommt die Fußinnenseite dazu.',
+    achte: 'Die Bewegung kommt nur aus dem Fuß, das Knie bleibt ruhig. Die Schmerzampel streng beachten.',
+    leicht: 'weniger Kraft', schwer: 'stärkeres Band, langsamer zurückführen',
+    p: [
+      {t: 'Außenrand isometrisch, 3 × 30 s je Seite', k: 'hold', n: 3, s: 30, side: true, how: 'Im Sitzen die Fußaußenkante gegen ein Tischbein oder ein fixiertes Band drücken, ohne Bewegung, mit mittlerer Kraft.', gear: ['Band oder Tischbein']},
+      {t: 'Außen- und Innenrand, je 2 × 15 pro Seite', k: 'list', items: ['Außenrand: 2 × 15 je Seite', 'Innenrand: 2 × 15 je Seite'], how: EV, gear: ['Band']},
+      {t: 'stärkeres Band, je 3 × 15 pro Seite, 3 s zurück', k: 'list', items: ['Außenrand: 3 × 15 je Seite, 3 s zurück', 'Innenrand: 3 × 15 je Seite, 3 s zurück'], how: EV, gear: ['Band']}]},
+  C6: {name: 'Wadenkraft',
+    ziel: 'Die Belastbarkeit der Wade aufbauen, die Voraussetzung für lange Runden zu Fuß und den Laufwiedereinstieg.',
+    achte: 'Den Druck über den Großzehenballen führen, nicht über die Außenkante abrollen.',
+    leicht: 'ohne Gewicht', schwer: 'mehr Gewicht oder mehr Wiederholungen',
+    p: [
+      {t: 'sitzend mit Kettlebell, 3 × 15', k: 'sets', n: 3, r: '15 Wdh.', rest: 30, how: 'Sitz auf einem Stuhl, Kettlebell oder Kurzhantel auf den Knien, Fersen heben und langsam senken.', gear: ['Stuhl', 'Kettlebell']},
+      {t: 'im Stand beidbeinig, 3 × 12, 3 s absenken', k: 'sets', n: 3, r: '12 Wdh.', rest: 45, how: 'Stand auf beiden Beinen, Fersen heben und in 3 s absenken.', foot: FOOT, gear: []},
+      {t: 'einbeinig, 3 × 10–15 je Seite; Ziel 20 am Stück', k: 'sets', n: 3, r: '10–15 je Seite', rest: 45, how: 'Einbeinig mit Fingerkontakt an der Wand. Ziel sind 20 saubere Wiederholungen am Stück.', foot: FOOT, gear: ['Wand']}]},
+  C7: {name: 'Gleichgewicht',
+    ziel: 'Kontrolle von Fuß und Sprunggelenk und Standfestigkeit im Schwung.',
+    achte: 'Fußgewölbe aktiv wie bei C4, Knie über der Fußmitte.',
+    leicht: 'Fingerkontakt', schwer: 'Medizinball von Hand zu Hand geben',
+    p: [
+      {t: 'Einbeinstand, 3 × 30 s je Seite, rechts mit Fingerkontakt', k: 'hold', n: 3, s: 30, side: true, how: 'Barfuß auf einem Bein stehen, Knie leicht gebeugt. Rechts mit Fingerkontakt an der Wand.', gear: ['Wand']},
+      {t: 'Augen geschlossen oder auf gefalteter Matte, 3 × 30 s je Seite', k: 'hold', n: 3, s: 30, side: true, how: 'Barfuß auf einem Bein stehen, Knie leicht gebeugt, mit geschlossenen Augen oder auf der gefalteten Matte.', foot: FOOT, gear: ['Matte']},
+      {t: 'Halbball: Ansprechhaltung mit Drehung, dann einbeinig, je 3 × 20–30 s', k: 'seq', seq: [
+        {l: 'Ansprechhaltung mit Drehung 1 von 3', s: 25}, {l: 'Ansprechhaltung mit Drehung 2 von 3', s: 25}, {l: 'Ansprechhaltung mit Drehung 3 von 3', s: 25},
+        {l: 'Einbeinig links 1 von 3', s: 25}, {l: 'Einbeinig rechts 1 von 3', s: 25},
+        {l: 'Einbeinig links 2 von 3', s: 25}, {l: 'Einbeinig rechts 2 von 3', s: 25},
+        {l: 'Einbeinig links 3 von 3', s: 25}, {l: 'Einbeinig rechts 3 von 3', s: 25}],
+        how: 'In Ansprechhaltung auf dem Halbball den Oberkörper langsam drehen. Danach einbeinig auf dem Halbball stehen.', foot: FOOT, gear: ['Halbball']}]},
+
+  O11: {code: '1.1', name: 'Hüftbeugerdehnung im Stand', how: 'Kurzer Schritt, hintere Ferse möglichst am Boden. Becken aufrichten und Gesäß anspannen.', p: [{t: '2 × 20–30 s je Seite', k: 'hold', n: 2, s: 25, side: true}]},
+  O12: {code: '1.2', name: 'Beckenaufrichten im Stand', how: 'Gesäß anspannen, Schambein nach oben ziehen, 5 s halten.', p: [{t: '10 Wdh., je 5 s halten', k: 'sets', n: 1, r: '10 × 5 s'}]},
+  O13: {code: '1.3', name: 'Kniebeuge zum Stuhl', how: 'Langsam hinsetzen, kurz antippen, aufstehen.', p: [{t: '10 Wdh.', k: 'sets', n: 1, r: '10 Wdh.', gear: ['Stuhl']}]},
+  O21: {code: '2.1', name: 'Drehung im Sitzen', how: 'Arme vor der Brust verschränkt, Becken ruhig, Oberkörper zu jeder Seite drehen.', p: [{t: '8 je Seite', k: 'sets', n: 1, r: '8 je Seite', gear: ['Stuhl']}]},
+  O22: {code: '2.2', name: 'Brustdehnung am Türrahmen', how: 'Unterarm an den Türrahmen, Ellbogen auf Schulterhöhe, Oberkörper langsam nach vorne bringen.', p: [{t: '30 s je Seite', k: 'hold', n: 1, s: 30, side: true, gear: ['Türrahmen']}]},
+  O23: {code: '2.3', name: 'Kinn zurückziehen', how: 'Doppelkinn machen, Blick geradeaus.', p: [{t: '10 × 3 s', k: 'sets', n: 1, r: '10 × 3 s'}]},
+  O24: {code: '2.4', name: 'Schulterblätter', how: 'Schulterblätter nach hinten unten ziehen.', p: [{t: '10 × 3 s', k: 'sets', n: 1, r: '10 × 3 s'}]},
+  O31: {code: '3.1', name: 'Fußkreisen', how: 'Im Sitzen den Fuß in großen Kreisen bewegen.', p: [{t: '10 je Richtung und Seite', k: 'sets', n: 1, r: '10 je Richtung'}]},
+  O32: {code: '3.2', name: 'Zehen-Yoga', how: 'Nur die Großzehe heben, die anderen bleiben am Boden, dann umgekehrt.', p: [{t: '10 Wdh. je Seite', k: 'sets', n: 1, r: '10 je Seite'}]},
+  O33: {code: '3.3', name: 'Kurzer Fuß', how: 'Großzehenballen Richtung Ferse ziehen, ohne die Zehen zu krallen.', p: [{t: '5 × 5 s je Seite', k: 'sets', n: 1, r: '5 × 5 s je Seite'}]},
+  O34: {code: '3.4', name: 'Gesäßdehnung', how: 'Knöchel auf das andere Knie legen, mit geradem Rücken nach vorne neigen.', p: [{t: '30 s je Seite', k: 'hold', n: 1, s: 30, side: true, gear: ['Stuhl']}]},
+
+  W1: {code: '1', name: 'Gehen oder Marschieren', how: 'Zügig gehen oder auf der Stelle marschieren, die Arme schwingen mit.', p: [{t: '1 Minute', k: 'hold', n: 1, s: 60}]},
+  W2: {code: '2', name: 'Katze-Kuh im Stand', how: 'Hände auf den Oberschenkeln, den Rücken abwechselnd runden und strecken.', p: [{t: '6 Wdh.', k: 'sets', n: 1, r: '6 Wdh.'}]},
+  W3: {code: '3', name: 'Beinpendeln', how: 'Am Schläger abgestützt das Bein locker vor und zurück pendeln, dann seitlich.', p: [{t: 'je 10 pro Seite und Richtung', k: 'sets', n: 1, r: '10 je Seite und Richtung', gear: ['Schläger']}]},
+  W4: {code: '4', name: 'Hüftbeugerdehnung im Stand', how: 'Schrittstellung, Becken aufrichten, den Arm der hinteren Seite über den Kopf strecken.', p: [{t: '2 × 20 s je Seite', k: 'hold', n: 2, s: 20, side: true}]},
+  W5: {code: '5', name: 'Rumpfdrehung in Ansprechhaltung', how: 'Schläger quer vor der Brust, aus der Ansprechhaltung zu beiden Seiten drehen.', p: [{t: '10 je Seite', k: 'sets', n: 1, r: '10 je Seite', gear: ['Schläger']}]},
+  W6: {code: '6', name: 'Seitneigung mit Schläger', how: 'Schläger mit gestreckten Armen über dem Kopf, zu beiden Seiten neigen.', p: [{t: '6 je Seite', k: 'sets', n: 1, r: '6 je Seite', gear: ['Schläger']}]},
+  W7: {code: '7', name: 'Schwünge mit kurzem Eisen', how: 'Erst halbe, dann volle Schwünge, das Tempo steigern.', p: [{t: '10–15 Schwünge', k: 'sets', n: 1, r: '10–15 Schwünge', gear: ['Kurzes Eisen']}]}
+};
+
+const GIDS = ['G1', 'G2', 'G3', 'G4', 'G5', 'G6'];
+const SESSIONS = {
+  A: {code: 'A', name: 'Einheit A', topic: 'Becken und Hüfte', ids: GIDS.concat(['A1', 'A2', 'A3', 'A4', 'A5', 'A6']), min: 30},
+  B: {code: 'B', name: 'Einheit B', topic: 'Rumpf, Schulter und Rotation', ids: GIDS.concat(['B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7']), min: 30},
+  C: {code: 'C', name: 'Einheit C', topic: 'Fuß, Wade und Gleichgewicht', ids: GIDS.concat(['C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7']), min: 30},
+  G: {code: 'G', name: 'Grundprogramm', topic: 'Minimalprogramm', ids: GIDS, min: 10},
+  O1: {code: '1', name: 'Büro 1', topic: 'Hüfte und Becken, im Stehen', ids: ['O11', 'O12', 'O13'], min: 3, fixed: true},
+  O2: {code: '2', name: 'Büro 2', topic: 'Oberkörper, im Sitzen oder Stehen', ids: ['O21', 'O22', 'O23', 'O24'], min: 3, fixed: true},
+  O3: {code: '3', name: 'Büro 3', topic: 'Fuß und Bein, im Sitzen', ids: ['O31', 'O32', 'O33', 'O34'], min: 3, fixed: true},
+  GOLF: {code: 'Golf', name: 'Golf-Aufwärmen', topic: 'Vor Runde oder Range', ids: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7'], min: 8, fixed: true,
+    note: 'Als Rechtshänder rollst du im Durchschwung über den rechten Vorfuß ab. Solange der Fuß Beschwerden macht: Range-Einheiten kurz halten, zunächst 9 Löcher spielen und den Anlaufschmerz am nächsten Morgen prüfen.'}
+};
+const GROUP = {G: 'Grundprogramm', A: 'Einheit A · Becken und Hüfte', B: 'Einheit B · Rumpf, Schulter und Rotation', C: 'Einheit C · Fuß, Wade und Gleichgewicht', O: 'Büro-Kurzeinheit', W: 'Golf-Aufwärmen'};
+
+/* ---------- Hilfsfunktionen ---------- */
+const LS = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* Speicher nicht verfügbar */ } },
+  del(k) { try { localStorage.removeItem(k); } catch (e) { /* Speicher nicht verfügbar */ } }
+};
+const pad = n => String(n).padStart(2, '0');
+const keyOf = d => d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+const parseKey = k => { const a = k.split('-').map(Number); return new Date(a[0], a[1] - 1, a[2]); };
+const midnight = d => new Date(d.getFullYear(), d.getMonth(), d.getDate());
+const daysBetween = (a, b) => Math.round((midnight(b) - midnight(a)) / 864e5);
+const addDays = (d, n) => new Date(d.getFullYear(), d.getMonth(), d.getDate() + n);
+const mondayOf = d => addDays(midnight(d), -((d.getDay() + 6) % 7));
+const fmtDate = d => new Intl.DateTimeFormat('de-AT', {weekday: 'long', day: 'numeric', month: 'long'}).format(d);
+const fmtShort = d => d.getDate() + '.' + (d.getMonth() + 1) + '.';
+const fmtNum = x => x.toFixed(1).replace('.', ',');
+const fmtClock = ms => { const s = Math.max(0, Math.ceil(ms / 1000)); return Math.floor(s / 60) + ':' + pad(s % 60); };
+const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
+const codeOf = id => EX[id].code || id;
+const groupOf = id => GROUP[id.charAt(0)];
+const doseOf = (id, phase) => { const p = EX[id].p; return p[Math.min(phase, p.length) - 1]; };
+const howOf = (id, d) => (d.how || EX[id].how || '') + (d.plus ? ' ' + d.plus : '');
+const isTimed = d => d.k === 'hold' || d.k === 'pnf' || d.k === 'seq';
+
+const ICON = {
+  chev: '<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  back: '<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  close: '<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>',
+  check: '<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  sliders: '<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h9M19 7h1M4 17h3M13 17h7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="7" r="2.6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="10" cy="17" r="2.6" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
+  alert: '<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7.5v5.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="16.6" r="1.3" fill="currentColor"/></svg>',
+  skip: '<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6.5l8.5 5.5L6 17.5z" fill="currentColor"/><path d="M18 6.5v11" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>'
+};
+
+/* ---------- Zustand ---------- */
+const $app = document.getElementById('app');
+const state = {
+  view: 'home', key: null, sheet: null,
+  settings: Object.assign({phase: 'auto', sound: true, ack: 1}, LS.get('bt.settings', {})),
+  run: null, ex: null, done: null, msg: null
+};
+const saveSettings = () => LS.set('bt.settings', state.settings);
+const saveRun = () => { if (state.run) LS.set('bt.run', state.run); };
+
+function ctx() {
+  const now = new Date();
+  const today = keyOf(now);
+  const diff = daysBetween(parseKey(START), now);
+  const before = diff < 0;
+  const week = before ? 0 : Math.floor(diff / 7) + 1;
+  const autoPhase = week <= 4 ? 1 : week <= 8 ? 2 : 3;
+  const manual = state.settings.phase !== 'auto';
+  const phase = manual ? Number(state.settings.phase) : autoPhase;
+  const maint = week >= 13;
+  return {now, today, week, before, daysToStart: -diff, autoPhase, phase, manual, maint, dow: now.getDay(), plan: maint ? MAINT : PLAN};
+}
+
+/* ---------- Protokoll: nur auf diesem Gerät ---------- */
+const store = {days: LS.get('bt.days', {})};
+function dayOf(k) {
+  if (!store.days[k]) store.days[k] = {date: k, pain: null, ampel: null, sessions: [], updated: 0};
+  return store.days[k];
+}
+let persistAsked = false;
+function touch(k) {
+  dayOf(k).updated = Date.now();
+  LS.set('bt.days', store.days);
+  if (!persistAsked && navigator.storage && navigator.storage.persist) {
+    persistAsked = true;
+    navigator.storage.persist().catch(() => { /* Browser entscheidet selbst */ });
+  }
+}
+const AMPEL = ['gruen', 'gelb', 'rot'];
+const num = (v, lo, hi) => { const n = Number(v); return Number.isFinite(n) ? Math.min(hi, Math.max(lo, Math.round(n))) : null; };
+function cleanDay(k, r) {
+  r = r && typeof r === 'object' ? r : {};
+  const sessions = Array.isArray(r.sessions) ? r.sessions.filter(s => s && SESSIONS[s.key]).map(s => ({
+    key: s.key, phase: num(s.phase, 1, 3) || 1, done: num(s.done, 0, 99) || 0, skipped: num(s.skipped, 0, 99) || 0,
+    total: num(s.total, 0, 99) || 0, min: num(s.min, 0, 600) || 0, at: typeof s.at === 'string' ? s.at.slice(0, 40) : ''
+  })) : [];
+  return {date: k, pain: r.pain == null ? null : num(r.pain, 0, 10), ampel: AMPEL.includes(r.ampel) ? r.ampel : null, sessions: sessions, updated: Number(r.updated) || 0};
+}
+function download(name, text, type) {
+  const url = URL.createObjectURL(new Blob([text], {type: type}));
+  const a = document.createElement('a');
+  a.href = url; a.download = name;
+  document.body.appendChild(a); a.click();
+  setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 1500);
+}
+function restoreFrom(file) {
+  file.text().then(txt => {
+    const data = JSON.parse(txt);
+    const days = data && data.days && typeof data.days === 'object' ? data.days : null;
+    if (!days) throw new Error('format');
+    let n = 0;
+    Object.keys(days).forEach(k => {
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(k)) return;
+      const r = cleanDay(k, days[k]);
+      const l = store.days[k];
+      if (!l || r.updated >= (l.updated || 0)) { store.days[k] = r; n++; }
+    });
+    LS.set('bt.days', store.days);
+    state.msg = n === 1 ? '1 Tag aus der Sicherung übernommen.' : n + ' Tage aus der Sicherung übernommen.';
+    render();
+  }).catch(() => {
+    state.msg = 'Die Datei konnte nicht gelesen werden. Wähle eine Sicherung, die diese App erstellt hat.';
+    render();
+  });
+}
+
+/* ---------- Ton, Vibration, Bildschirm wach halten ---------- */
+let actx = null;
+function audio() {
+  if (!state.settings.sound) return null;
+  try {
+    actx = actx || new (window.AudioContext || window.webkitAudioContext)();
+    if (actx.state === 'suspended') actx.resume();
+  } catch (e) { actx = null; }
+  return actx;
+}
+function tone(freq, dur, vol, delay) {
+  const a = audio(); if (!a) return;
+  try {
+    const o = a.createOscillator(), g = a.createGain();
+    const t = a.currentTime + (delay || 0);
+    o.type = 'sine'; o.frequency.value = freq;
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(vol || 0.18, t + 0.015);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    o.connect(g); g.connect(a.destination);
+    o.start(t); o.stop(t + dur + 0.03);
+  } catch (e) { /* kein Ton */ }
+}
+const chime = () => { tone(784, 0.22, 0.2); tone(1046, 0.4, 0.2, 0.18); };
+const buzz = p => { try { if (navigator.vibrate) navigator.vibrate(p); } catch (e) { /* keine Vibration */ } };
+let wake = null;
+async function keepAwake(on) {
+  try {
+    if (on) {
+      if (!wake && navigator.wakeLock) {
+        wake = await navigator.wakeLock.request('screen');
+        wake.addEventListener('release', () => { wake = null; });
+      }
+    } else if (wake) { await wake.release(); wake = null; }
+  } catch (e) { wake = null; }
+}
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible' && state.view === 'run') keepAwake(true);
+});
+
+/* ---------- Übungsablauf ---------- */
+function buildSegs(d, adj) {
+  const work = [];
+  if (d.k === 'hold') {
+    const s = Math.max(10, d.s + adj);
+    const between = d.lbl === 'Position' ? 'Rolle versetzen' : 'Kurze Pause';
+    const gs = d.lbl === 'Position' ? 5 : 10;
+    for (let i = 1; i <= d.n; i++) {
+      const base = d.lbl ? d.lbl + ' ' + i + ' von ' + d.n : (d.n > 1 ? 'Satz ' + i + ' von ' + d.n : '');
+      if (d.side) {
+        work.push({l: base ? base + ' · links' : 'Links', s: s, gap: i > 1 ? [between, gs] : null});
+        work.push({l: base ? base + ' · rechts' : 'Rechts', s: s, gap: ['Seite wechseln', 5]});
+      } else {
+        work.push({l: base || 'Halten', s: s, gap: i > 1 ? [between, gs] : null});
+      }
+    }
+  } else if (d.k === 'pnf') {
+    ['links', 'rechts'].forEach((side, si) => {
+      for (let i = 1; i <= d.n; i++) {
+        const l = cap(side) + ' · Durchgang ' + i + ' von ' + d.n;
+        work.push({l: l, sub: 'Anspannen', tense: true, s: d.a, gap: (si === 1 && i === 1) ? ['Seite wechseln', 5] : null});
+        work.push({l: l, sub: 'Lösen, tiefer dehnen', s: d.s, gap: null});
+      }
+    });
+  } else if (d.k === 'seq') {
+    d.seq.forEach((x, i) => work.push({l: x.l, s: x.s, gap: i > 0 ? ['Wechseln', 5] : null}));
+  }
+  const segs = [{type: 'lead', l: 'Position einnehmen', s: 5}];
+  work.forEach((w, i) => {
+    if (w.gap) segs.push({type: 'gap', l: w.gap[0], s: w.gap[1]});
+    segs.push({type: 'work', l: w.l, sub: w.sub || '', tense: !!w.tense, s: w.s, n: i + 1});
+  });
+  return segs;
+}
+
+function loadEx() {
+  stopClock();
+  const r = state.run;
+  const id = r.list[r.idx];
+  const d = doseOf(id, r.phase);
+  state.ex = {id: id, d: d, adj: 0, segs: isTimed(d) ? buildSegs(d, 0) : null, si: 0, started: false, running: false, done: false, endsAt: 0, remain: 0, lastSec: null, setsDone: 0, rest: null, items: []};
+}
+
+let clock = null;
+function startClock() { if (!clock) clock = setInterval(tick, 200); }
+function stopClock() { if (clock) { clearInterval(clock); clock = null; } }
+
+function advance(at) {
+  const ex = state.ex;
+  const next = ex.si + 1;
+  if (next >= ex.segs.length) {
+    ex.running = false; ex.done = true; ex.remain = 0;
+    chime(); buzz([200, 100, 200]);
+    renderWidget();
+    return 1;
+  }
+  const seg = ex.segs[next];
+  ex.si = next; ex.endsAt = at + seg.s * 1000; ex.lastSec = null;
+  if (seg.type === 'work') { tone(seg.tense ? 523 : 988, 0.35, 0.22); buzz([160]); }
+  else { tone(660, 0.3, 0.18); buzz([80]); }
+  renderWidget();
+  return ex.endsAt - Date.now();
+}
+
+function tick() {
+  const ex = state.ex;
+  if (!ex || state.view !== 'run') { stopClock(); return; }
+  const now = Date.now();
+  if (ex.running) {
+    let rem = ex.endsAt - now;
+    let guard = 0;
+    while (rem <= 0 && ex.running && guard < 200) { rem = advance(ex.endsAt); guard++; }
+    if (ex.running) {
+      ex.remain = rem;
+      const sec = Math.ceil(rem / 1000);
+      if (sec !== ex.lastSec) {
+        if (sec >= 1 && sec <= 3 && ex.segs[ex.si].s >= 4) tone(880, 0.08, 0.13);
+        ex.lastSec = sec;
+      }
+      updateTimer();
+    }
+  }
+  if (ex.rest) {
+    const rr = ex.rest.endsAt - now;
+    if (rr <= 0) { ex.rest = null; tone(988, 0.35, 0.22); buzz([160]); renderWidget(); }
+    else { const el = document.getElementById('rest-time'); if (el) el.textContent = fmtClock(rr); }
+  }
+  if (!ex.running && !ex.rest) stopClock();
+}
+
+function startRun(key) {
+  const c = ctx();
+  const s = SESSIONS[key];
+  state.run = {key: key, phase: s.fixed ? 1 : c.phase, list: s.ids.slice(), idx: 0, status: {}, startedAt: Date.now(), date: c.today};
+  state.view = 'run'; state.sheet = null;
+  loadEx(); saveRun(); render(); toTop();
+  audio(); keepAwake(true);
+}
+
+function finishRun() {
+  stopClock(); keepAwake(false);
+  const r = state.run;
+  const total = r.list.length;
+  const done = r.list.filter(id => r.status[id] === 'done').length;
+  const entry = {key: r.key, phase: r.phase, done: done, skipped: total - done, total: total, min: Math.max(1, Math.round((Date.now() - r.startedAt) / 60000)), at: new Date().toISOString()};
+  const d = dayOf(r.date);
+  d.sessions = (d.sessions || []).concat([entry]);
+  touch(r.date);
+  state.done = Object.assign({date: r.date, ampel: d.ampel || null}, entry);
+  state.run = null; state.ex = null; LS.del('bt.run');
+  state.view = 'done'; render(); toTop();
+}
+
+function goNext() {
+  const r = state.run;
+  if (r.idx < r.list.length - 1) { r.idx++; loadEx(); saveRun(); render(); toTop(); }
+  else finishRun();
+}
+const toTop = () => { try { window.scrollTo(0, 0); } catch (e) { /* ignorieren */ } };
+
+/* ---------- Aktionen ---------- */
+const A = {
+  settings() { state.sheet = 'settings'; state.msg = null; render(); },
+  closesheet() { state.sheet = null; state.msg = null; render(); },
+  preview(el) { state.key = el.dataset.key; state.view = 'preview'; render(); toTop(); },
+  home() { state.view = 'home'; state.key = null; render(); toTop(); },
+  start(el) { startRun(el.dataset.key); },
+  pain(el) {
+    const c = ctx(); const v = Number(el.dataset.v); const d = dayOf(c.today);
+    d.pain = d.pain === v ? null : v; touch(c.today); render();
+  },
+  phase(el) {
+    const v = el.dataset.v;
+    state.settings.phase = v === 'auto' ? 'auto' : Number(v);
+    if (v === 'auto') state.settings.ack = ctx().autoPhase;
+    saveSettings(); render();
+  },
+  phaseack(el) {
+    const c = ctx();
+    if (el.dataset.v === 'stay') state.settings.phase = Math.max(1, c.autoPhase - 1);
+    state.settings.ack = c.autoPhase;
+    saveSettings(); render();
+  },
+  sound(el) {
+    state.settings.sound = el.dataset.v === '1'; saveSettings();
+    if (state.settings.sound) tone(880, 0.12, 0.16);
+    render();
+  },
+  resume() {
+    const r = LS.get('bt.run', null); if (!r) return;
+    state.run = r; state.view = 'run'; loadEx(); render(); toTop(); audio(); keepAwake(true);
+  },
+  discard() { LS.del('bt.run'); render(); },
+  overview() { state.sheet = 'overview'; render(); },
+  jump(el) { state.run.idx = Number(el.dataset.i); state.sheet = null; loadEx(); saveRun(); render(); toTop(); },
+  quit() { state.sheet = 'quit'; render(); },
+  quitconfirm() { stopClock(); keepAwake(false); state.run = null; state.ex = null; LS.del('bt.run'); state.sheet = null; state.view = 'home'; render(); toTop(); },
+  done() { state.run.status[state.run.list[state.run.idx]] = 'done'; goNext(); },
+  skip() { state.run.status[state.run.list[state.run.idx]] = 'skip'; goNext(); },
+  prev() { const r = state.run; if (r.idx > 0) { r.idx--; loadEx(); saveRun(); render(); toTop(); } },
+  tstart() {
+    const ex = state.ex; if (!ex || ex.done) return;
+    audio();
+    if (!ex.started) { ex.started = true; ex.si = 0; ex.endsAt = Date.now() + ex.segs[0].s * 1000; tone(660, 0.2, 0.16); }
+    else ex.endsAt = Date.now() + ex.remain;
+    ex.running = true; ex.lastSec = null;
+    startClock(); renderWidget();
+  },
+  tpause() { const ex = state.ex; if (ex && ex.running) { ex.remain = ex.endsAt - Date.now(); ex.running = false; renderWidget(); } },
+  tnext() {
+    const ex = state.ex; if (!ex || !ex.started || ex.done) return;
+    const was = ex.running;
+    advance(Date.now());
+    if (!ex.done) { if (was) { ex.running = true; startClock(); } else ex.remain = ex.segs[ex.si].s * 1000; }
+    renderWidget();
+  },
+  treset() { const ex = state.ex; if (!ex) return; stopClock(); Object.assign(ex, {segs: buildSegs(ex.d, ex.adj), si: 0, started: false, running: false, done: false, remain: 0, lastSec: null}); renderWidget(); },
+  adj(el) {
+    const ex = state.ex; if (!ex || ex.started || ex.d.k !== 'hold') return;
+    ex.adj = Math.max(10 - ex.d.s, Math.min(60, ex.adj + Number(el.dataset.d)));
+    ex.segs = buildSegs(ex.d, ex.adj); renderWidget();
+  },
+  set(el) {
+    const ex = state.ex; const i = Number(el.dataset.i);
+    if (i <= ex.setsDone) { ex.setsDone = i - 1; ex.rest = null; ex.done = false; }
+    else {
+      ex.setsDone = i;
+      const rest = ex.d.rest || 0;
+      if (rest > 0 && i < ex.d.n) { audio(); ex.rest = {endsAt: Date.now() + rest * 1000}; startClock(); }
+      else ex.rest = null;
+      if (i >= ex.d.n) { ex.done = true; chime(); }
+    }
+    renderWidget();
+  },
+  restskip() { const ex = state.ex; if (ex) { ex.rest = null; renderWidget(); } },
+  item(el) {
+    const ex = state.ex; const i = Number(el.dataset.i);
+    ex.items[i] = !ex.items[i];
+    const was = ex.done;
+    ex.done = ex.d.items.every((_, k) => ex.items[k]);
+    if (ex.done && !was) chime();
+    renderWidget();
+  },
+  ampel(el) {
+    const k = state.done.date; const d = dayOf(k);
+    d.ampel = el.dataset.v; touch(k); state.done.ampel = el.dataset.v; render();
+  },
+  finish() { state.done = null; state.view = 'home'; render(); toTop(); },
+  backup() {
+    const body = {app: 'beweglichkeitstrainer', version: 1, exported: new Date().toISOString(), days: store.days};
+    download('beweglichkeit-sicherung-' + keyOf(new Date()) + '.json', JSON.stringify(body, null, 2), 'application/json');
+    state.msg = 'Sicherung gespeichert, meist im Ordner „Downloads“.';
+    render();
+  },
+  csv() {
+    const rows = [['Datum', 'Anlaufschmerz', 'Ampel', 'Einheit', 'Phase', 'Erledigt', 'Übersprungen', 'Minuten']];
+    Object.keys(store.days).sort().forEach(k => {
+      const d = store.days[k];
+      const list = d.sessions && d.sessions.length ? d.sessions : [null];
+      list.forEach(s => rows.push([k, d.pain != null ? d.pain : '', d.ampel || '', s && SESSIONS[s.key] ? SESSIONS[s.key].name : '', s ? s.phase : '', s ? s.done : '', s ? s.skipped : '', s ? s.min : '']));
+    });
+    const csv = '﻿' + rows.map(r => r.map(v => '"' + String(v).replace(/"/g, '""') + '"').join(';')).join('\r\n');
+    download('beweglichkeit-protokoll-' + keyOf(new Date()) + '.csv', csv, 'text/csv;charset=utf-8');
+    state.msg = 'Tabelle gespeichert, meist im Ordner „Downloads“.';
+    render();
+  }
+};
+document.addEventListener('click', e => {
+  const el = e.target.closest('[data-act]');
+  if (!el || !A[el.dataset.act]) return;
+  e.preventDefault();
+  A[el.dataset.act](el, e);
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && state.sheet) { state.sheet = null; render(); }
+});
+
+/* ---------- Ansichten ---------- */
+function weekAvg(c) {
+  const mon = c.before ? parseKey(START) : mondayOf(c.now);
+  const vals = [];
+  for (let i = 0; i < 7; i++) {
+    const d = addDays(mon, i);
+    if (daysBetween(d, c.now) < 0) break;
+    const v = (store.days[keyOf(d)] || {}).pain;
+    if (v != null) vals.push(v);
+  }
+  return vals.length ? vals.reduce((a, b) => a + b, 0) / vals.length : null;
+}
+
+function hero(o) {
+  return '<section class="hero" aria-label="Heute"><p class="hero-eyebrow">' + (o.done ? ICON.check : '') + o.eyebrow + '</p><h2 class="hero-title">' + o.title + '</h2><p class="hero-sub">' + o.sub + '</p><div class="hero-actions">' + o.actions + '</div></section>';
+}
+function heroHtml(c) {
+  const dd = store.days[c.today] || {};
+  if (c.before) {
+    return hero({eyebrow: c.daysToStart === 1 ? 'Morgen geht es los' : 'Start in ' + c.daysToStart + ' Tagen',
+      title: 'Eingangstests',
+      sub: 'Mach vor dem Start die sieben Selbsttests aus dem Plan und trag die Werte ins Testprotokoll ein.',
+      actions: '<button class="btn btn-hero" data-act="preview" data-key="G">Grundprogramm ausprobieren</button>'});
+  }
+  const planned = c.plan[c.dow];
+  if (!planned) {
+    return hero({eyebrow: 'Heute', title: 'Pause', sub: 'Sonntag ist frei. Optional: Grundprogramm oder ein Spaziergang.',
+      actions: '<button class="btn btn-hero" data-act="preview" data-key="G">Grundprogramm · 10 Min.</button>'});
+  }
+  const s = SESSIONS[planned];
+  const doneMain = (dd.sessions || []).filter(x => x.key === planned).pop();
+  if (doneMain) {
+    return hero({eyebrow: 'Heute erledigt', done: true, title: s.name,
+      sub: s.topic + ' · ' + doneMain.done + ' von ' + doneMain.total + ' Übungen · ' + doneMain.min + ' Min.',
+      actions: '<button class="btn btn-hero-ghost" data-act="preview" data-key="' + planned + '">Einheit ansehen</button>'});
+  }
+  const ph = c.maint ? 'Erhaltung' : 'Phase ' + c.phase + ' · ' + PHASES[c.phase];
+  if (planned === 'G') {
+    return hero({eyebrow: 'Heute · ' + ph, title: 'Grundprogramm', sub: '6 Übungen · ca. 10 Min.',
+      actions: '<button class="btn btn-hero" data-act="preview" data-key="G">Training starten</button>'});
+  }
+  return hero({eyebrow: 'Heute · ' + ph, title: s.name,
+    sub: s.topic + ' · Grundprogramm und ' + (s.ids.length - 6) + ' Übungen · ca. ' + s.min + ' Min.',
+    actions: '<button class="btn btn-hero" data-act="preview" data-key="' + planned + '">Training starten</button><button class="btn btn-hero-ghost" data-act="preview" data-key="G">Nur Grundprogramm · 10 Min.</button>'});
+}
+
+function bannersHtml(c) {
+  let h = '';
+  const saved = LS.get('bt.run', null);
+  if (saved && saved.date === c.today && SESSIONS[saved.key]) {
+    const s = SESSIONS[saved.key];
+    h += '<section class="banner"><p><strong>' + s.name + ' läuft noch</strong>Weiter bei Übung ' + (saved.idx + 1) + ' von ' + saved.list.length + '.</p><div class="banner-actions"><button class="btn btn-primary btn-small" data-act="resume">Fortsetzen</button><button class="btn btn-ghost btn-small" data-act="discard">Verwerfen</button></div></section>';
+  }
+  if (!c.before && !c.manual && !c.maint && c.autoPhase > (state.settings.ack || 1)) {
+    h += '<section class="banner"><p><strong>Laut Kalender beginnt Phase ' + c.autoPhase + '</strong>Wechsle nur, wenn alle Übungen technisch sauber gelingen, die Schmerzampel überwiegend grün war und der Anlaufschmerz nicht gestiegen ist.</p><div class="banner-actions"><button class="btn btn-primary btn-small" data-act="phaseack" data-v="go">Phase ' + c.autoPhase + ' starten</button><button class="btn btn-ghost btn-small" data-act="phaseack" data-v="stay">In Phase ' + (c.autoPhase - 1) + ' bleiben</button></div></section>';
+  }
+  if (!c.before && [4, 8, 12].includes(c.week) && (c.dow === 6 || c.dow === 0)) {
+    h += '<section class="banner"><p><strong>Ende von Woche ' + c.week + ': Selbsttests</strong>Mach die sieben Tests aus dem Plan und trag die Werte ins Testprotokoll ein.</p></section>';
+  }
+  return h;
+}
+
+function checkinHtml(c) {
+  const v = (store.days[c.today] || {}).pain;
+  let pads = '';
+  for (let i = 0; i <= 10; i++) {
+    const z = i <= 2 ? 'g' : i <= 4 ? 'y' : 'r';
+    pads += '<button class="pain z-' + z + (v === i ? ' is-on' : '') + '" data-act="pain" data-v="' + i + '" aria-pressed="' + (v === i) + '" aria-label="Anlaufschmerz ' + i + '">' + i + '</button>';
+  }
+  const avg = weekAvg(c);
+  const y = (store.days[keyOf(addDays(c.now, -1))] || {}).pain;
+  let trend = '';
+  if (v != null && y != null) {
+    if (v > y) trend = ' · <span class="trend-up">höher als gestern: fußbelastende Übungen heute eine Stufe leichter</span>';
+    else if (v < y) trend = ' · niedriger als gestern';
+    else trend = ' · gleich wie gestern';
+  }
+  const foot = avg == null ? 'Noch kein Wert diese Woche.' : 'Ø diese Woche <b>' + fmtNum(avg) + '</b>' + trend;
+  return '<section class="card checkin"><div class="card-head"><h3>Anlaufschmerz heute</h3><span class="hint">erste Schritte am Morgen, 0–10</span></div><div class="painpad" role="group" aria-label="Anlaufschmerz von 0 bis 10">' + pads + '</div><p class="checkin-foot">' + foot + '</p></section>';
+}
+
+function scorecardHtml(c) {
+  const base = c.before ? parseKey(START) : mondayOf(c.now);
+  const wk = c.before ? 1 : c.week;
+  const plan = wk >= 13 ? MAINT : PLAN;
+  const lbl = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'];
+  let head = '', prow = '', drow = '', srow = '';
+  for (let i = 0; i < 7; i++) {
+    const d = addDays(base, i);
+    const k = keyOf(d);
+    const t = k === c.today ? ' class="is-today"' : '';
+    const dd = store.days[k] || {};
+    const ss = dd.sessions || [];
+    const main = ss.some(x => x.key === 'A' || x.key === 'B' || x.key === 'C');
+    const mini = ss.some(x => x.key === 'G');
+    head += '<th scope="col"' + t + '>' + lbl[i] + '<span class="dnum">' + d.getDate() + '.</span></th>';
+    prow += '<td' + t + '>' + (plan[d.getDay()] || '–') + '</td>';
+    drow += '<td' + t + '>' + (main ? '<span class="mark ok" aria-label="Einheit erledigt">' + ICON.check + '</span>' : mini ? '<span class="mark mini" aria-label="Minimalprogramm">M</span>' : '<span class="mark none"></span>') + '</td>';
+    srow += '<td' + t + '>' + (dd.pain != null ? dd.pain : '') + '</td>';
+  }
+  return '<section class="scorecard" aria-label="Wochenübersicht"><div class="sc-head"><h3>Woche ' + wk + '</h3><span>' + fmtShort(base) + '–' + fmtShort(addDays(base, 6)) + '</span></div><div class="sc-scroll"><table class="sc"><thead><tr><th scope="col" class="rowh"><span class="dnum">&nbsp;</span></th>' + head + '</tr></thead><tbody><tr><th scope="row" class="rowh">Plan</th>' + prow + '</tr><tr><th scope="row" class="rowh">Erledigt</th>' + drow + '</tr><tr><th scope="row" class="rowh">Schmerz</th>' + srow + '</tr></tbody></table></div><p class="sc-legend">Haken: Einheit erledigt · M: Minimalprogramm · Schmerz: Anlaufschmerz 0–10</p></section>';
+}
+
+function rowHtml(key, extra) {
+  const s = SESSIONS[key];
+  return '<li><button class="row" data-act="preview" data-key="' + key + '"><span class="code">' + s.code + '</span><span class="row-main"><span class="row-title">' + s.name + '</span><span class="row-sub">' + s.topic + ' · ca. ' + s.min + ' Min.</span>' + (extra || '') + '</span>' + ICON.chev + '</button></li>';
+}
+function sessionsHtml(c) {
+  const ss = (store.days[c.today] || {}).sessions || [];
+  const doneTag = key => ss.some(x => x.key === key) ? '<span class="row-done">' + ICON.check + 'heute erledigt</span>' : '';
+  const office = ['O1', 'O2', 'O3'].filter(k => ss.some(x => x.key === k)).length;
+  return '<section class="sec"><h3 class="sec-title">Alle Einheiten</h3><ul class="rows">' + rowHtml('A', doneTag('A')) + rowHtml('B', doneTag('B')) + rowHtml('C', doneTag('C')) + rowHtml('G', doneTag('G')) + '</ul></section>'
+    + '<section class="sec"><h3 class="sec-title">Büro-Kurzeinheiten <span>heute ' + office + ' von 3</span></h3><ul class="rows">' + rowHtml('O1', doneTag('O1')) + rowHtml('O2', doneTag('O2')) + rowHtml('O3', doneTag('O3')) + '</ul></section>'
+    + '<section class="sec"><h3 class="sec-title">Golf</h3><ul class="rows">' + rowHtml('GOLF', doneTag('GOLF')) + '</ul></section>';
+}
+
+function viewHome() {
+  const c = ctx();
+  let line;
+  if (c.before) line = c.daysToStart === 1 ? 'Start morgen' : 'Start am Montag, 26. Oktober';
+  else if (c.maint) line = 'Woche ' + c.week + ' · Erhaltung';
+  else line = 'Woche ' + c.week + ' · Phase ' + c.phase + ' ' + PHASES[c.phase] + (c.manual ? ' (manuell)' : '');
+  return '<main class="wrap">'
+    + '<header class="masthead"><div><p class="eyebrow">12-Wochen-Plan</p><h1 class="brand">Beweglichkeitstrainer</h1></div><button class="icon-btn" data-act="settings" aria-label="Einstellungen">' + ICON.sliders + '</button></header>'
+    + '<p class="dateline">' + fmtDate(c.now) + ' · ' + line + '</p>'
+    + bannersHtml(c) + heroHtml(c) + checkinHtml(c) + scorecardHtml(c) + sessionsHtml(c)
+    + '<p class="footnote">Protokoll nur auf diesem Gerät · Sicherung in den Einstellungen</p>'
+    + '</main>';
+}
+
+function gearOf(s, phase) {
+  const out = [];
+  s.ids.forEach(id => (doseOf(id, phase).gear || []).forEach(g => { if (!out.includes(g)) out.push(g); }));
+  return out;
+}
+function viewPreview() {
+  const c = ctx();
+  const s = SESSIONS[state.key];
+  const phase = s.fixed ? 1 : c.phase;
+  const gear = gearOf(s, phase);
+  let list = '', grp = '';
+  s.ids.forEach(id => {
+    const g = groupOf(id);
+    if (!s.fixed && g !== grp) { grp = g; list += '<li class="grp">' + g + '</li>'; }
+    const d = doseOf(id, phase);
+    list += '<li><span class="code">' + codeOf(id) + '</span><span class="ex-li-main"><span class="ex-li-name">' + EX[id].name + '</span><span class="ex-li-dose">' + d.t + '</span></span>' + (d.foot ? '<span class="foot-flag" title="Hinweis zum rechten Fuß">' + ICON.alert + '</span>' : '') + '</li>';
+  });
+  const top = s.fixed ? s.topic : (c.maint ? 'Erhaltung · Dosierung Phase 3' : 'Phase ' + phase + ' · ' + PHASES[phase] + (c.manual ? ' (manuell)' : ''));
+  const anyFoot = s.ids.some(id => doseOf(id, phase).foot);
+  return '<main class="wrap">'
+    + '<div class="topbar"><button class="icon-btn" data-act="home" aria-label="Zurück zur Übersicht">' + ICON.back + '</button><span class="topbar-title">' + top + '</span></div>'
+    + '<div class="ex-head"><p class="eyebrow">' + s.name + '</p><h1 class="display">' + (s.fixed ? s.name : s.topic) + '</h1><p class="lede">' + s.ids.length + ' Übungen · ca. ' + s.min + ' Min.</p></div>'
+    + (gear.length ? '<div class="gear"><span class="gear-label">Bereitlegen</span>' + gear.map(g => '<span class="chip">' + g + '</span>').join('') + '</div>' : '')
+    + (s.note ? '<p class="note">' + ICON.alert + '<span>' + s.note + '</span></p>' : '')
+    + (anyFoot ? '<p class="note">' + ICON.alert + '<span>Übungen mit diesem Zeichen haben einen Hinweis zum rechten Fuß. Er erscheint im Ablauf bei der Übung.</span></p>' : '')
+    + '<ol class="exlist">' + list + '</ol>'
+    + '</main>'
+    + '<div class="actionbar"><div class="actionbar-in"><button class="btn btn-primary btn-block" data-act="start" data-key="' + state.key + '">Los geht’s</button></div></div>';
+}
+
+function timerHtml(ex) {
+  const works = ex.segs.filter(x => x.type === 'work');
+  const cur = ex.started && !ex.done ? ex.segs[ex.si] : null;
+  let sub, label, cls = '', subCls = '';
+  if (ex.done) { sub = 'Geschafft'; label = 'Alle Abschnitte erledigt'; }
+  else if (!ex.started) { sub = 'Bereit'; label = works[0].l; }
+  else if (cur.type === 'work') {
+    sub = !ex.running ? 'Pausiert' : (cur.sub || 'Halten');
+    label = cur.l;
+    if (cur.tense) { cls = ' is-tense'; subCls = ' is-tense'; }
+  } else {
+    sub = cur.l;
+    const nx = ex.segs.slice(ex.si + 1).find(x => x.type === 'work');
+    label = nx ? 'Gleich: ' + nx.l : '';
+    cls = ' is-gap';
+    if (!ex.running) sub = 'Pausiert';
+  }
+  const doneN = ex.done ? works.length : (ex.started ? ex.segs.slice(0, ex.si).filter(x => x.type === 'work').length : 0);
+  const curN = cur && cur.type === 'work' ? cur.n : -1;
+  const dots = works.map((w, i) => '<span class="' + (i < doneN ? 'is-done' : '') + (i + 1 === curN ? ' is-cur' : '') + '"></span>').join('');
+  let controls;
+  if (ex.done) controls = '<button class="btn btn-ghost" data-act="treset">Nochmal</button>';
+  else if (!ex.started) controls = (ex.d.k === 'hold' ? '<button class="btn btn-ghost btn-adj" data-act="adj" data-d="-5" aria-label="5 Sekunden kürzer">−5 s</button>' : '') + '<button class="btn btn-primary" data-act="tstart">Start</button>' + (ex.d.k === 'hold' ? '<button class="btn btn-ghost btn-adj" data-act="adj" data-d="5" aria-label="5 Sekunden länger">+5 s</button>' : '');
+  else if (ex.running) controls = '<button class="btn btn-ghost" data-act="tpause">Pause</button><button class="btn btn-ghost" data-act="tnext">Abschnitt weiter</button>';
+  else controls = '<button class="btn btn-primary" data-act="tstart">Fortsetzen</button><button class="btn btn-ghost" data-act="tnext">Abschnitt weiter</button>';
+  const total = ex.segs.reduce((a, x) => a + x.s, 0);
+  const firstWork = works[0];
+  const timeHtml = ex.done ? ICON.check : fmtClock(!ex.started ? firstWork.s * 1000 : (ex.running ? ex.endsAt - Date.now() : ex.remain));
+  return '<div class="panel">'
+    + '<div class="ring-wrap"><svg class="ring" viewBox="0 0 200 200" aria-hidden="true"><circle class="ring-track" cx="100" cy="100" r="88"/><circle id="tm-ring" class="ring-fill' + cls + '" cx="100" cy="100" r="88" stroke-dasharray="552.92" stroke-dashoffset="0"/></svg>'
+    + '<div class="ring-center" role="timer" aria-live="off"><div class="tm-sub' + subCls + '">' + sub + '</div><div class="tm-time" id="tm-time">' + timeHtml + '</div><div class="tm-label">' + label + '</div></div></div>'
+    + '<div class="tm-steps" aria-label="' + doneN + ' von ' + works.length + ' Abschnitten erledigt">' + dots + '</div>'
+    + '<div class="tm-controls">' + controls + '</div>'
+    + (!ex.started ? '<p class="tm-total">Dauer ca. ' + fmtClock(total * 1000) + ' Min. inklusive Wechsel · nach Start 5 s zum Einnehmen der Position</p>' : '')
+    + (ex.d.extra ? '<p class="extra">' + ex.d.extra + '</p>' : '')
+    + '</div>';
+}
+function setsHtml(ex) {
+  const d = ex.d;
+  let h = '<div class="sets-reps">' + d.r + '</div>';
+  if (d.n > 1) {
+    h += '<p class="sets-cap">' + d.n + ' Sätze' + (d.rest ? ' · ' + d.rest + ' s Pause' : '') + ' · nach jedem Satz antippen</p><div class="sets-row">';
+    for (let i = 1; i <= d.n; i++) {
+      const on = i <= ex.setsDone;
+      h += '<button class="set' + (on ? ' is-done' : '') + '" data-act="set" data-i="' + i + '" aria-pressed="' + on + '">' + (on ? ICON.check : '') + '<span>Satz ' + i + '</span></button>';
+    }
+    h += '</div>';
+    if (ex.rest) h += '<div class="rest" role="timer"><span>Pause</span><b id="rest-time">' + fmtClock(ex.rest.endsAt - Date.now()) + '</b><button class="btn btn-ghost btn-small" data-act="restskip">Überspringen</button></div>';
+  } else {
+    h += '<p class="sets-cap">Ein Durchgang · ruhig und kontrolliert</p>';
+  }
+  return '<div class="panel">' + h + '</div>';
+}
+function listHtml(ex) {
+  return '<div class="panel"><ul class="checklist">' + ex.d.items.map((t, i) => '<li><button class="check' + (ex.items[i] ? ' is-on' : '') + '" data-act="item" data-i="' + i + '" aria-pressed="' + !!ex.items[i] + '"><span class="box">' + ICON.check + '</span><span>' + t + '</span></button></li>').join('') + '</ul></div>';
+}
+function widgetInner() {
+  const ex = state.ex;
+  if (!ex) return '';
+  if (ex.segs) return timerHtml(ex);
+  if (ex.d.k === 'list') return listHtml(ex);
+  return setsHtml(ex);
+}
+
+function viewRun() {
+  const r = state.run, ex = state.ex, id = ex.id, e = EX[id], d = ex.d, s = SESSIONS[r.key];
+  const last = r.idx === r.list.length - 1;
+  const nextId = last ? null : r.list[r.idx + 1];
+  const pct = Math.round(r.idx / r.list.length * 100);
+  const variants = (e.leicht || e.schwer) ? '<details><summary>Leichter / schwerer' + ICON.chev + '</summary><p>Leichter: ' + e.leicht + '. Schwerer: ' + e.schwer + '.</p></details>' : '';
+  return '<main class="wrap">'
+    + '<header class="runbar"><button class="icon-btn" data-act="quit" aria-label="Einheit beenden">' + ICON.close + '</button><button class="runbar-mid" data-act="overview" aria-label="Übersicht der Übungen"><span class="runbar-title">' + s.name + (s.fixed ? '' : ' · Phase ' + r.phase) + '</span><span class="runbar-count">' + (r.idx + 1) + ' / ' + r.list.length + '</span></button><button class="icon-btn" data-act="skip" aria-label="Übung überspringen" title="Übung überspringen">' + ICON.skip + '</button><div class="progress" aria-hidden="true"><span style="width:' + pct + '%"></span></div></header>'
+    + '<div class="ex-head"><p class="eyebrow"><span class="code">' + codeOf(id) + '</span>' + groupOf(id) + '</p><h1 class="ex-name">' + e.name + '</h1><p class="ex-dose">' + d.t + '</p></div>'
+    + (d.foot ? '<p class="note">' + ICON.alert + '<span>' + d.foot + '</span></p>' : '')
+    + '<section class="widget" id="widget">' + widgetInner() + '</section>'
+    + '<section class="howto"><h2 class="label">Ausführung</h2><p>' + howOf(id, d) + '</p>'
+    + (e.achte ? '<h2 class="label">Achte darauf</h2><p>' + e.achte + '</p>' : '')
+    + (e.ziel ? '<details><summary>Ziel' + ICON.chev + '</summary><p>' + e.ziel + '</p></details>' : '')
+    + variants + '</section>'
+    + (nextId ? '<p class="next">Als Nächstes: <b>' + codeOf(nextId) + ' ' + EX[nextId].name + '</b> · ' + doseOf(nextId, r.phase).t + '</p>' : '<p class="next">Letzte Übung dieser Einheit.</p>')
+    + '</main>'
+    + '<div class="actionbar"><div class="actionbar-in"><button class="btn btn-ghost btn-sq" data-act="prev" aria-label="Vorherige Übung"' + (r.idx === 0 ? ' disabled' : '') + '>' + ICON.back + '</button><button class="btn btn-primary' + (ex.done ? ' is-ready' : '') + '" id="btn-done" data-act="done">' + (last ? 'Abschließen' : 'Erledigt · weiter') + '</button></div></div>';
+}
+
+function viewDone() {
+  const d = state.done;
+  const s = SESSIONS[d.key];
+  const amp = d.ampel;
+  const advice = {
+    gruen: 'Weiter wie geplant; Steigerung ist erlaubt.',
+    gelb: 'Dosis halten, nicht steigern.',
+    rot: 'Fußbelastende Übungen aussetzen, die fußschonende Variante wählen und eine Stufe zurück. Bei Ruhe- oder Nachtschmerz, Schwellung, punktuellem Knochenschmerz oder Kribbeln orthopädisch abklären lassen.'
+  };
+  const btn = (v, cls, name, txt) => '<button class="amp-btn ' + cls + (amp === v ? ' is-on' : '') + '" data-act="ampel" data-v="' + v + '" aria-pressed="' + (amp === v) + '"><span class="amp-dot"></span><b>' + name + '</b><small>' + txt + '</small></button>';
+  return '<main class="wrap">'
+    + '<div class="done-badge">' + ICON.check + '</div>'
+    + '<div class="ex-head"><p class="eyebrow">' + (s.fixed ? s.topic : 'Phase ' + d.phase) + '</p><h1 class="display">' + s.name + ' geschafft</h1><p class="lede">' + d.done + ' von ' + d.total + ' Übungen erledigt · ' + d.min + ' Min.</p></div>'
+    + '<section class="card"><div class="card-head"><h3>Wie ging es dem rechten Fuß?</h3><span class="hint">Schmerz während der Übungen</span></div><div class="amp-row">'
+    + btn('gruen', 'g', 'Grün', '0–2, kein Anstieg') + btn('gelb', 'y', 'Gelb', '3–4, klingt ab') + btn('rot', 'r', 'Rot', 'ab 5 oder stechend')
+    + '</div>' + (amp ? '<p class="amp-advice">' + advice[amp] + '</p>' : '') + '</section>'
+    + '<button class="btn btn-primary btn-block" data-act="finish">Fertig</button>'
+    + '</main>';
+}
+
+function sheetHtml() {
+  const c = ctx();
+  if (state.sheet === 'settings') {
+    const ph = state.settings.phase;
+    const seg = (v, txt) => '<button data-act="phase" data-v="' + v + '" class="' + (String(ph) === String(v) ? 'is-on' : '') + '" aria-pressed="' + (String(ph) === String(v)) + '">' + txt + '</button>';
+    const snd = state.settings.sound;
+    return '<button class="scrim" data-act="closesheet" aria-label="Schließen"></button><section class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title"><div class="sheet-in">'
+      + '<div class="sheet-head"><h2 id="sheet-title" tabindex="-1">Einstellungen</h2><button class="icon-btn" data-act="closesheet" aria-label="Schließen">' + ICON.close + '</button></div>'
+      + '<h3>Phase</h3><div class="seg">' + seg('auto', 'Automatisch') + seg(1, '1') + seg(2, '2') + seg(3, '3') + '</div>'
+      + '<p class="small">Laut Kalender: ' + (c.before ? 'Phase 1 ab 26. Oktober' : 'Woche ' + c.week + ', Phase ' + c.autoPhase) + '. Wechsle nur, wenn alle Übungen technisch sauber gelingen, die Schmerzampel überwiegend grün ist und der Anlaufschmerz nicht gestiegen ist. Sonst die Phase hier manuell festhalten.</p>'
+      + '<h3>Signalton</h3><div class="seg"><button data-act="sound" data-v="1" class="' + (snd ? 'is-on' : '') + '" aria-pressed="' + snd + '">An</button><button data-act="sound" data-v="0" class="' + (!snd ? 'is-on' : '') + '" aria-pressed="' + !snd + '">Aus</button></div>'
+      + '<h3>Schmerzampel</h3><table class="amp-table"><thead><tr><th>Ampel</th><th>Während der Übung</th><th>Vorgehen</th></tr></thead><tbody>'
+      + '<tr><td><span class="amp-name"><span class="amp-dot dot-g"></span>Grün</span></td><td>0–2, am nächsten Morgen kein Anstieg</td><td>wie geplant, Steigerung erlaubt</td></tr>'
+      + '<tr><td><span class="amp-name"><span class="amp-dot dot-y"></span>Gelb</span></td><td>3–4, klingt bis zum Morgen ab</td><td>Dosis halten</td></tr>'
+      + '<tr><td><span class="amp-name"><span class="amp-dot dot-r"></span>Rot</span></td><td>ab 5 oder stechend; Anlaufschmerz stärker</td><td>aussetzen, fußschonende Variante, eine Stufe zurück</td></tr>'
+      + '</tbody></table>'
+      + '<p class="small">Dehnspannung ist kein Schmerz: Ziel ist ein deutliches, gut erträgliches Ziehen von etwa 5–7 von 10.</p>'
+      + '<h3>Protokoll</h3><p class="small">Einheiten, Anlaufschmerz und Ampel bleiben nur auf diesem Gerät. Sichere das Protokoll ab und zu als Datei: Beim Löschen der Browserdaten oder beim Deinstallieren geht es sonst verloren.</p><div class="sheet-actions"><button class="btn btn-ghost btn-block" data-act="backup">Sicherung speichern</button><button class="btn btn-ghost btn-block" data-act="csv">Als Tabelle exportieren (CSV)</button><label class="btn btn-ghost btn-block" for="restore-file">Sicherung laden</label><input type="file" id="restore-file" accept="application/json,.json" hidden></div>' + (state.msg ? '<p class="small" role="status">' + state.msg + '</p>' : '')
+      + '</div></section>';
+  }
+  if (state.sheet === 'overview' && state.run) {
+    const r = state.run;
+    const items = r.list.map((id, i) => {
+      const st = r.status[id];
+      const mark = i === r.idx ? '<span class="ov-state cur">' + (i + 1) + '</span>' : st === 'done' ? '<span class="ov-state ok">' + ICON.check + '</span>' : st === 'skip' ? '<span class="ov-state" aria-label="übersprungen">–</span>' : '<span class="ov-state">' + (i + 1) + '</span>';
+      return '<li><button class="ov-row' + (i === r.idx ? ' is-cur' : '') + '" data-act="jump" data-i="' + i + '">' + mark + '<span class="code">' + codeOf(id) + '</span><span class="row-main"><span class="row-title">' + EX[id].name + '</span><span class="row-sub">' + doseOf(id, r.phase).t + '</span></span></button></li>';
+    }).join('');
+    return '<button class="scrim" data-act="closesheet" aria-label="Schließen"></button><section class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title"><div class="sheet-in">'
+      + '<div class="sheet-head"><h2 id="sheet-title" tabindex="-1">' + SESSIONS[r.key].name + '</h2><button class="icon-btn" data-act="closesheet" aria-label="Schließen">' + ICON.close + '</button></div>'
+      + '<p class="small">Tippe auf eine Übung, um dorthin zu springen.</p><ul class="ov-list">' + items + '</ul></div></section>';
+  }
+  if (state.sheet === 'quit') {
+    return '<button class="scrim" data-act="closesheet" aria-label="Schließen"></button><section class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title"><div class="sheet-in">'
+      + '<div class="sheet-head"><h2 id="sheet-title" tabindex="-1">Einheit beenden?</h2></div>'
+      + '<p class="small">Die Einheit wird nicht ins Protokoll eingetragen. Wenn du nur einzelne Übungen auslassen willst, nutze stattdessen das Überspringen-Symbol oben rechts.</p>'
+      + '<div class="sheet-actions"><button class="btn btn-primary btn-block" data-act="closesheet">Weiter trainieren</button><button class="btn btn-ghost btn-block" data-act="quitconfirm">Beenden</button></div>'
+      + '</div></section>';
+  }
+  return '';
+}
+
+/* ---------- Rendern ---------- */
+function updateTimer() {
+  const ex = state.ex;
+  if (!ex || !ex.segs || !ex.started || ex.done) return;
+  const t = document.getElementById('tm-time'), ring = document.getElementById('tm-ring');
+  if (!t || !ring) return;
+  const seg = ex.segs[ex.si];
+  const rem = ex.running ? Math.max(0, ex.endsAt - Date.now()) : ex.remain;
+  t.textContent = fmtClock(rem);
+  ring.style.strokeDashoffset = String(552.92 * (1 - Math.max(0, Math.min(1, rem / (seg.s * 1000)))));
+}
+function renderWidget() {
+  if (state.view !== 'run' || !state.ex) return;
+  const w = document.getElementById('widget');
+  if (w) w.innerHTML = widgetInner();
+  updateTimer();
+  const b = document.getElementById('btn-done');
+  if (b) b.classList.toggle('is-ready', !!state.ex.done);
+}
+function render() {
+  const v = state.view;
+  let html = v === 'preview' ? viewPreview() : v === 'run' ? viewRun() : v === 'done' ? viewDone() : viewHome();
+  if (state.sheet) html += sheetHtml();
+  $app.innerHTML = html;
+  document.body.classList.toggle('has-bar', v === 'preview' || v === 'run');
+  if (v === 'run') updateTimer();
+  if (state.sheet) { const h = document.getElementById('sheet-title'); if (h) h.focus(); }
+}
+
+/* ---------- Start ---------- */
+render();
+document.addEventListener('change', e => {
+  const input = e.target;
+  if (input && input.id === 'restore-file' && input.files && input.files[0]) restoreFrom(input.files[0]);
+});
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => { navigator.serviceWorker.register('./sw.js').catch(() => { /* ohne Offline-Speicher */ }); });
+}
+})();
+</script>
+</body>
+</html>
+
